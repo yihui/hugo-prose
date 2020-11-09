@@ -315,7 +315,13 @@ block-level elements when the screen width is smaller than 800px.
 
 The first alphabetical character in each summary block is converted to an [open
 face character](https://www.w3.org/TR/xml-entity-names/double-struck.html) such
-as 𝔸𝔹ℂ𝔻.
+as:
+
+<div style="font-size: 3em; line-height: 1em;">
+
+> &Aopf; &Bopf; &Copf; &Dopf; &Eopf; &Fopf; &Gopf; &Hopf; &Iopf; &Jopf; &Kopf; &Lopf; &Mopf; &Nopf; &Oopf; &Popf; &Qopf; &Ropf; &Sopf; &Topf; &Uopf; &Vopf; &Wopf; &Xopf; &Yopf; &Zopf; &aopf; &bopf; &copf; &dopf; &eopf; &fopf; &gopf; &hopf; &iopf; &jopf; &kopf; &lopf; &mopf; &nopf; &oopf; &popf; &qopf; &ropf; &sopf; &topf; &uopf; &vopf; &wopf; &xopf; &yopf; &zopf;
+
+</div>
 
 ### Navigation links
 
