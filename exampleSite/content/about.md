@@ -142,7 +142,7 @@ info cards, and then a number of the latest posts and pages.
       homePosts: 10
     ```
 
-    The default is 5.
+    The default is 6.
 
 [^8]: We recommend that you keep the title short so it can fit on one line.
 
@@ -328,6 +328,7 @@ as 𝔸𝔹ℂ𝔻.
 | Menu              |          |             |              |           |
 | Table of contents |          |             |              |           |
 | Floats            |          |             |              |           |
+| Home posts        |          |             |              |           |
 
 ### Dark theme
 

@@ -41,7 +41,7 @@ menu:
       identifier: "subscribe"
 
 params:
-  homePosts: 5
+  homePosts: 6
   editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]

@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 
-<div class="container">
+<div class="container list">
 <main>
 {{ if not .IsHome }}
 <h1>{{ .Title }}</h1>
@@ -36,7 +36,7 @@
 
 {{ $pages := .Pages }}
 {{ if .IsHome }}
-{{ $pages = first (default 5 .Site.Params.homePosts) (sort (where .Site.RegularPages "Section" "!=" "") "Date" "desc") }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages "Section" "!=" "") "Date" "desc") }}
 {{ else }}
 {{ $pages = (.Paginate $pages).Pages }}
 {{ end }}
