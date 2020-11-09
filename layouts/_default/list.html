@@ -60,7 +60,13 @@
       {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
     </div>
     <div class="summary">
-      {{ default .Summary .Description | replaceRE "^([A-Za-z])" "&$1 opf;" | replaceRE "^(&[A-Za-z]) (opf;)" "$1$2" | safeHTML }}
+      {{ $summary := .Description }}
+      {{ if $summary }}
+      {{ $summary = (markdownify $summary) }}
+      {{ else }}
+      {{ $summary = ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summaryLength) (default " &hellip;" .Site.Params.textTruncated ) | replaceRE "&amp;" "&") }}
+      {{ end }}
+      {{ $summary | replaceRE "^([A-Za-z])" "&$1 opf;" | replaceRE "^(&[A-Za-z]) (opf;)" "$1$2" | safeHTML }}
       <a href="{{ .RelPermalink }}" class="more" title="Read More...">Read more &rarr;</a>
     </div>
     </td>
