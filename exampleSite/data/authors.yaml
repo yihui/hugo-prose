@@ -1,0 +1,17 @@
+- name: "Yihui Xie"
+  bio: >
+    Yihui Xie (https://yihui.org) is a software engineer at [RStudio](https://www.rstudio.com).
+    He earned his PhD from the Department of Statistics, Iowa State University.
+    He has authored several R packages, such as **knitr**, **bookdown**, **blogdown**,
+    **xaringan**, **DT**, *and *tinytex**,.He also co-authored a few other R packages,
+    including **shiny**, **rmarkdown**, and **leaflet**.
+    He has published a number of books, including _Dynamic Documents with R and knitr_,
+    _bookdown: Authoring Books and Technical Documents with R Markdown_,
+    _blogdown: Creating Websites with R Markdown_, _R Markdown: The Definitive Guide_,
+    and _R Markdown Cookbook_. He is the founder of the Capital of Statistics (https://cosx.org).
+    He initiated the Chinese R conference in 2008.
+
+- name: "Lucius Annaeus Seneca"
+  bio: >
+    Lucius Annaeus Seneca was a Hispano-Roman Stoic philosopher, statesman, dramatist,
+    and—in one work—satirist from the Silver Age of Latin literature.

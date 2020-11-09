@@ -1,0 +1,64 @@
+baseurl: "/"
+languageCode: "en-us"
+title: "Hugo Stoic"
+theme: "hugo-stoic"
+googleAnalytics: ""
+disqusShortname: ""
+ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
+footnotereturnlinkcontents: "↩"
+paginate: 2
+
+permalinks:
+  post: "/post/:year/:month/:day/:slug/"
+
+menu:
+  header:
+    - name: Home
+      url: "/"
+      weight: 1
+    - name: About
+      url: "/about/"
+      weight: 2
+    - name: Sitemap
+      url: "/sitemap/"
+      weight: 3
+    - name: Subscribe
+      url: "index.xml"
+  footer:
+    - name: Contact
+      url: "/404.html"
+      weight: 1
+    - name: Categories
+      url: "/categories/"
+      weight: 2
+      identifier: "categories"
+    - name: Tags
+      url: "/tags/"
+      weight: 3
+      identifier: "tags"
+    - name: Subscribe
+      url: "index.xml"
+      identifier: "subscribe"
+
+params:
+  homePosts: 5
+  editLink: "https://github.com/yihui/hugo-stoic/edit/master/exampleSite/content/"
+  authorDelimiter: " / "
+  pageFeatures: [+sidenotes]
+  description: >
+    A website built through Hugo and blogdown with the hugo-stoic theme.
+  footer: >
+    &copy; [Lucius Annaeus Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger)
+    4 BC -- AD 65
+  license: >
+    Text and figures are licensed under [Creative Commons Attribution CC BY
+    4.0](https://creativecommons.org/licenses/by/4.0/). The source code is
+    licensed under MIT. The full source is available at
+    https://github.com/yihui/hugo-stoic.
+
+markup:
+  highlight:
+    codeFences: false
+  goldmark:
+    renderer:
+      unsafe: true
