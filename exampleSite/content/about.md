@@ -255,8 +255,8 @@ Super wide content to be scrolled horizontally.
 ### Embedded elements
 
 Use the `embed-left` or `embed-right` class to embed a content block to be
-floated to the left or right, and the block will exceed the article margin,
-e.g.,
+floated to the left or right, and the block will exceed the article margin by
+200px, e.g.,
 
 ``` html
 <div class="embed-right">
@@ -275,9 +275,9 @@ narrative. For example, you can embed a video on the right side, and provide a
 narrative in the body of the article, which will be on the left side of the
 video.
 
-By default, the width of the embedded element is 600px, out of which 200px will
-be in the margin, meaning that there will be 400px left for the narrative in the
-article body.
+By default, the `max-width` of the embedded element is 600px (the actual width
+could be smaller), out of which 200px will be in the margin, meaning that there
+will be at least 400px left for the narrative in the article body.
 
 When the screen width is smaller than 1200px, the embedded elements will be
 floated back into the article as normal block-level elements.

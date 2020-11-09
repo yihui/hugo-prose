@@ -132,7 +132,7 @@ pre code:not(.hljs) { display: block; padding: .5em; }
 }
 h3.side-left { text-align: right; }
 .quote-left, .quote-right { width: 45%; }
-.embed-left, .embed-right { width: 600px; }
+.embed-left, .embed-right { max-width: 600px; }
 .quote-left, .embed-left {
   float: left;
   margin-right: 1em;
@@ -141,8 +141,8 @@ h3.side-left { text-align: right; }
   float: right;
   margin-left: 1em;
 }
-.embed-left { margin-left: -200px; }
-.embed-right { margin-right: -200px; }
+.embed-left { margin-left: calc(-200px - 2em); }
+.embed-right { margin-right: calc(-200px - 2em); }
 
 .spacer { width: 1em; }
 .spacer-left { border-left: 1px dashed; }
