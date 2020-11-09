@@ -1,11 +1,11 @@
 ---
-title: About Hugo Stoic
+title: About Hugo Prose
 author: Yihui Xie
 categories: [Hugo, Theme]
 tags: [menu, TOC, sidenote, appendix, citation, numbered section]
 appendix:
   acknowledgments: |
-    We thank the authors of the [Wowchemy](https://wowchemy.com) theme, [tufte-css](https://github.com/edwardtufte/tufte-css), and the
+    We thank the authors of the [Wowchemy](https://wowchemy.com) theme, [tufte.css](https://github.com/edwardtufte/tufte.css), and the
     [Distill](https://distill.pub) framework for inspirations. Many users in the R community have asked
     for a Distill-like Hugo theme directly or indirectly, including but not limited to
     [Emi Tanaka](https://emitanaka.org/r/posts/2018-12-12-scientific-and-technical-blogging-radix-vs-blogdown/),
@@ -13,7 +13,7 @@ appendix:
     [Frank Harrell](https://stackoverflow.com/q/54388451/559676),
     [Josiah Parry](https://twitter.com/JosiahParry/status/1231280231543164928), and
     [Alison Hill](https://twitter.com/apreshill/status/1070550028274429952). We are not sure if this Hugo
-    Stoic theme would make it easier or even harder to answer the frequently asked question "blogdown or
+    Prose theme would make it easier or even harder to answer the frequently asked question "blogdown or
     distill?"
     
     The images on this page are from Wikipedia entries [Stoicism](https://en.wikipedia.org/wiki/Stoicism)
@@ -21,12 +21,11 @@ appendix:
 features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
-**Hugo Stoic** is a minimalist theme derived from the [**XMin**
+**Hugo Prose** is a minimalist theme derived from the [**XMin**
 theme](https://github.com/yihui/hugo-xmin), and inspired by
 [Wowchemy](https://wowchemy.com) (previously known as the Academic theme),
-[Distill](https://distill.pub),
-[tufte-css](https://github.com/edwardtufte/tufte-css), and
-[Stoicism](https://en.wikipedia.org/wiki/Stoicism). This theme itself is
+[Distill](https://distill.pub), and
+[tufte.css](https://github.com/edwardtufte/tufte.css). This theme itself is
 completely plain-text and lightweight, and does not use any icons, images, or
 emojis.[^1] By default, the theme only uses two JavaScript libraries, MathJax
 and highlight.js, and they are loaded only when necessary. The rest of
@@ -316,7 +315,7 @@ block-level elements when the screen width is smaller than 800px.
 
 The first alphabetical character in each summary block is converted to an [open
 face character](https://www.w3.org/TR/xml-entity-names/double-struck.html) such
-as &Aopf;&Bopf;&Copf;&Dopf;.
+as 𝔸𝔹ℂ𝔻.
 
 ### Navigation links
 

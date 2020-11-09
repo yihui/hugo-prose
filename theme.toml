@@ -1,8 +1,8 @@
-name = "Stoic"
+name = "Prose"
 license = "MIT"
-licenselink = "https://github.com/yihui/hugo-stoic/blob/master/LICENSE.md"
-description = "A minimalist Hugo theme inspired by the academic theme, distill.pub, and stoicism."
-homepage = "https://stoic.yihui.org"
+licenselink = "https://github.com/yihui/hugo-prose/blob/master/LICENSE.md"
+description = "A minimalist Hugo theme inspired by the academic theme, distill.pub, and tufte.css."
+homepage = "https://prose.yihui.org"
 tags = ["minimal", "blog", "personal", "clean", "simple", "starter", "minimalist"]
 features = ["blog"]
 min_version = "0.54"

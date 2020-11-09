@@ -1,7 +1,7 @@
 baseurl: "/"
 languageCode: "en-us"
-title: "Hugo Stoic"
-theme: "hugo-stoic"
+title: "Hugo Prose"
+theme: "hugo-prose"
 googleAnalytics: ""
 disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
@@ -42,11 +42,11 @@ menu:
 
 params:
   homePosts: 5
-  editLink: "https://github.com/yihui/hugo-stoic/edit/master/exampleSite/content/"
+  editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
   description: >
-    A website built through Hugo and blogdown with the hugo-stoic theme.
+    A website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
     &copy; [Lucius Annaeus Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger)
     4 BC -- AD 65
@@ -54,7 +54,7 @@ params:
     Text and figures are licensed under [Creative Commons Attribution CC BY
     4.0](https://creativecommons.org/licenses/by/4.0/). The source code is
     licensed under MIT. The full source is available at
-    https://github.com/yihui/hugo-stoic.
+    https://github.com/yihui/hugo-prose.
 
 markup:
   highlight:
