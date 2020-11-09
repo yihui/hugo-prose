@@ -123,6 +123,7 @@ pre code:not(.hljs) { display: block; padding: .5em; }
   float: left;
   clear: left;
   margin-left: calc(-200px - 2em);
+  position: sticky;
 }
 .side-right {
   float: right;
