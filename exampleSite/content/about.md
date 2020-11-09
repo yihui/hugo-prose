@@ -4,7 +4,7 @@ author: Yihui Xie
 categories: [Hugo, Theme]
 tags: [menu, TOC, sidenote, appendix, citation, numbered section]
 appendix:
-  acknowledgments: >
+  acknowledgments: |
     We thank the authors of the [Wowchemy](https://wowchemy.com) theme, [tufte-css](https://github.com/edwardtufte/tufte-css), and the
     [Distill](https://distill.pub) framework for inspirations. Many users in the R community have asked
     for a Distill-like Hugo theme directly or indirectly, including but not limited to
@@ -15,6 +15,9 @@ appendix:
     [Alison Hill](https://twitter.com/apreshill/status/1070550028274429952). We are not sure if this Hugo
     Stoic theme would make it easier or even harder to answer the frequently asked question "blogdown or
     distill?"
+    
+    The images on this page are from Wikipedia entries [Stoicism](https://en.wikipedia.org/wiki/Stoicism)
+    and [清明上河图](https://zh.wikipedia.org/wiki/%E6%B8%85%E6%98%8E%E4%B8%8A%E6%B2%B3%E5%9C%96).
 features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
@@ -306,6 +309,34 @@ The default width of the content is 45% of the container. You have seen an
 example of `quote-right` at the beginning of this article. Here is an example of
 `quote-left` on the left side. The quotes will stop floating and become normal
 block-level elements when the screen width is smaller than 800px.
+
+## List pages
+
+### Open face characters
+
+The first alphabetical character in each summary block is converted to an [open
+face character](https://www.w3.org/TR/xml-entity-names/double-struck.html) such
+as &Aopf;&Bopf;&Copf;&Dopf;.
+
+### Navigation links
+
+## Responsive design
+
+### Screen size
+
+|                   | \< 650px | 650 - 800px | 800 - 1280px | \> 1280px |
+|-------------------|----------|-------------|--------------|-----------|
+| Menu              |          |             |              |           |
+| Table of contents |          |             |              |           |
+| Floats            |          |             |              |           |
+
+### Dark theme
+
+This theme uses the
+[`prefer-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+CSS media feature to respond to the dark color theme of the system. If you
+change your system to the dark mode, the web pages will automatically switch to
+the dark mode.
 
 ## Custom layouts
 
