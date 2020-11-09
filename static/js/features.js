@@ -35,6 +35,7 @@
       fn = fns[i];  // footnote item
       a = d.querySelector('a[href="#' + fn.id + '"]');  // <a> that contains footnote number in body
       if (!a) continue;
+      a.removeAttribute('href');
       n = a.innerText;   // footnote number
       a = a.parentNode;  // the <sup> that contains n
       s = d.createElement('div');  // insert a side div next to n in body
