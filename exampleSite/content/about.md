@@ -43,33 +43,7 @@ not use any CSS frameworks, and the full CSS code is also written from scratch
 
 </div>
 
-As Stoicism preaches, moderation is key, function is more important than form,
-and we should not live in excess. Stoicism does not advocate sacrifices. You
-just need to be content with "enough." The natural question to ask is, how much
-is enough? Of course, different people will have different answers. Is a
-professional headshot on our homepage necessary?[^2] Is a huge banner image at
-the top of each post necessary?[^3] Is the contact form necessary?[^4] Is
-"mobile friendly" necessary?[^5] Are these footnotes necessary?[^6] The answers
-are not necessarily "No," but you may want to spend some quality time on
-reflecting the pain and gain of each element on your website, and whether you
-use them because you need them or just happen to have them.
-
-[^2]: Is our picture more important than our contribution to the world?
-
-[^3]: Especially when these banner images are only loosely relevant to the
-    posts.
-
-[^4]: How many of our readers do not know how to send emails?
-
-[^5]: Aren't we addicted enough to our mobile devices?
-
-[^6]: Why cannot we write so clearly and smoothly that readers do not have to
-    stop from time to time to look at our side thoughts?
-
 This page introduces the features of this Hugo theme that you can fiddle with.
-I'm not sure when you will be bored by this theme, but I think from the moment
-when you first see this theme, the clock has started ticking, just like the
-ever-decreasing joy of online shopping after you hit the checkout button.
 
 ## Site configurations
 
@@ -105,9 +79,9 @@ The `url` of a menu item can be either a relative URL pointing to a page on this
 website, or an external link (e.g., `url: "https://github.com/yihui"`). The
 order of the menu items is determined by the `weight` values. If a menu item has
 an `identifier`, it indicates that this menu item will be hidden on small
-screens.[^7]
+screens.[^2]
 
-[^7]: These may be the unimportant items that you do not mind hiding on smaller
+[^2]: These may be the unimportant items that you do not mind hiding on smaller
     screens.
 
 ### Home page
@@ -120,7 +94,7 @@ info cards, and then a number of the latest posts and pages.
 
 -   The info cards come from the `content/card/` directory. Each (Markdown) file
     is displayed on the home page as a separate card. The title is displayed
-    vertically on the left or right side.[^8] If you want to customize the style
+    vertically on the left or right side.[^3] If you want to customize the style
     of a certain card, you may use the YAML option `style` in the file, e.g.,
 
     ``` yaml
@@ -144,7 +118,7 @@ info cards, and then a number of the latest posts and pages.
 
     The default is 6.
 
-[^8]: We recommend that you keep the title short so it can fit on one line.
+[^3]: We recommend that you keep the title short so it can fit on one line.
 
 ### Footer
 
