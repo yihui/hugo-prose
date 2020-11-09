@@ -19,6 +19,13 @@ main {
 .article, .appendix {
   position: relative;
 }
+.article-list, .single main, .single .appendix, .fullwidth {
+  margin-top: 2em;
+  padding: 1em;
+  box-shadow: 0 0 8px #ccc;
+  background: #fff;
+}
+
 /* header and footer areas */
 .menu { box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1); }
 .menu li, .terms li, .footer li { display: inline-block; }
@@ -146,14 +153,13 @@ h3.side-left { text-align: right; }
 .fullscroll * { max-width: initial; }
 .fullwidth {
   max-width: calc(100vw - 2em);
-  margin-left: 50%;
+  margin: 1em 0 1em 50%;
   transform: translateX(-50%);
   float: left;
   min-width: 100%;
   background: white;
-  border: 1em solid white;
 }
-.fullscroll { overflow-x: auto; }
+.fullscroll, .fullscroll figure { overflow-x: auto; }
 .fullwidth figcaption {
   margin-left: calc(50% - 400px);
   width: 800px;
@@ -171,12 +177,6 @@ blockquote {
 .categories {
   text-transform: uppercase;
   font-size: .8em;
-}
-.article-list, .single main, .single .appendix {
-  margin-top: 2em;
-  padding: 1em;
-  box-shadow: 0 0 8px #ccc;
-  background: #fff;
 }
 .single .appendix { background: none; }
 .article-list a, .footer a {
@@ -273,9 +273,7 @@ tr:nth-child(even) { background: #eee }
     margin: auto;
   }
   .menu ul, .footer { flex-wrap: wrap; }
-  .fullwidth * {
-    max-width: 100%;
-  }
+  .fullwidth * { max-width: 100%; }
   .fullwidth {
     margin: initial;
     transform: initial;

@@ -14,9 +14,23 @@
     el.remove ? el.remove() : el.parentNode.removeChild(el);
   };
 
+  var insertAfter = function(prev, sib) {
+    prev.after ? prev.after(sib) : (
+      prev.parentNode.insertBefore(sib, prev.nextSibling)
+    );
+  }
+
+  var i, a, s;
+
+  // move <figcaption> out of <figure> so that <figure> can scroll
+  d.querySelectorAll('.fullscroll figure > figcaption').forEach(function(el) {
+    var p = el.parentNode;
+    if (p.tagName === 'FIGURE') insertAfter(p, el);
+  });
+
   // move footnotes to sidenotes
   if (config.indexOf('-sidenotes') === -1) {
-    var i, fn, fns = d.querySelectorAll('section.footnotes li[id^="fn:"]'), a, n, s;
+    var fn, fns = d.querySelectorAll('section.footnotes li[id^="fn:"]'), n;
     for (i = 0; i < fns.length; i++) {
       fn = fns[i];  // footnote item
       a = d.querySelector('a[href="#' + fn.id + '"]');  // <a> that contains footnote number in body
@@ -30,7 +44,7 @@
         '</span> ' + s.firstElementChild.innerHTML;
       removeEl(s.querySelector('a[href^="#fnref:"]'));  // remove backreference in footnote
       removeEl(fn);
-      a.parentNode.insertBefore(s, a.nextSibling);
+      insertAfter(a, s);
     }
     // remove the footnote section if it's empty now
     fns = d.querySelector('section.footnotes');
