@@ -37,7 +37,6 @@
       if (!a) continue;
       a.removeAttribute('href');
       n = a.innerText;   // footnote number
-      a = a.parentNode;  // the <sup> that contains n
       s = d.createElement('div');  // insert a side div next to n in body
       s.className = 'side side-right';
       s.innerHTML = fn.innerHTML;
@@ -45,7 +44,7 @@
         '</span> ' + s.firstElementChild.innerHTML;
       removeEl(s.querySelector('a[href^="#fnref:"]'));  // remove backreference in footnote
       removeEl(fn);
-      insertAfter(a, s);
+      insertAfter(a.parentNode, s);  // insert note after the <sup> that contains a
     }
     // remove the footnote section if it's empty now
     fns = d.querySelector('section.footnotes');
