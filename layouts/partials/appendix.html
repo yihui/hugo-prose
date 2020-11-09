@@ -1,0 +1,42 @@
+<section class="appendix">
+{{ if $.Site.Data.authors }}
+{{ if .Params.author }}
+<div>
+  <div class="side side-left"><h3>Author's bio</h3></div>
+  <div>{{ partial "bio.html" . }}</div>
+</div>
+{{ end }}
+{{ end }}
+
+{{ range $key, $value := .Params.appendix }}
+<div>
+  <div class="side side-left"><h3>{{ $key | title }}</h3></div>
+  <div>{{ $value | markdownify }} </div>
+</div>
+{{ end }}
+
+{{ with (default .Params.license .Site.Params.license ) }}
+<div>
+  <div class="side side-left"><h3>Reuse</h3></div>
+  {{ . | markdownify }}
+</div>
+{{ end }}
+
+{{ partial "correction.html" . }}
+
+{{ if .Params.author }}
+<div>
+  <div class="side side-left"><h3>Citation</h3></div>
+  <p>For attribution, please cite this work as</p>
+  <pre><code class="no-highlight">{{ with .Params.author }}{{ if (reflect.IsSlice .) }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}{{ end }} ({{ (or .Date now).Format "2006" }}). {{ .Title }}. {{ .Site.Title }}. {{ .Permalink}}</code></pre>
+  <p>BibTeX citation</p>
+  <pre><code class="no-highlight">@misc{
+  title = "{{ .Title }}",
+  author = "{{ with .Params.author }}{{ if (reflect.IsSlice .) }}{{ delimit . " and " }}{{ else }}{{ . }}{{ end }}{{ end }}",
+  year = "{{ (or .Date now).Format "2006" }}",
+  journal = "{{ .Site.Title }}",
+  note = "{{ .Permalink }}"
+}</code></pre>
+</div>
+{{ end }}
+</section>

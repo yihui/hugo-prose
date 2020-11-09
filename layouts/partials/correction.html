@@ -1,0 +1,18 @@
+{{ if (and .File.Path .Site.Params.editLink) }}
+<div>
+  <div class="side side-left"><h3>Suggest changes</h3></div>
+  {{ $filePath := .File.Path }}
+  {{ $RmdFile := (print .File.Dir .File.BaseFileName ".Rmd") }}
+  {{ if (fileExists (print "content/" $RmdFile)) }}
+    {{ $filePath = $RmdFile }}
+  {{ else }}
+    {{ $RmdFile = (print .File.Dir .File.BaseFileName ".Rmarkdown") }}
+    {{ if (fileExists (print "content/" $RmdFile)) }}
+      {{ $filePath = $RmdFile }}
+    {{ end }}
+  {{ end }}
+  If you find any mistakes (including typos) or want to suggest changes,
+  please feel free to <a href="{{ .Site.Params.editLink }}{{ $filePath }}">edit
+  the source file of this page</a> on Github and create a pull request.
+</div>
+{{ end }}

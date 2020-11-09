@@ -1,0 +1,85 @@
+{{ partial "header.html" . }}
+
+<div class="container">
+<main>
+{{ if not .IsHome }}
+<h1>{{ .Title }}</h1>
+{{ end }}
+
+{{ with .Content }}
+<section class="article-list">
+<div>{{ . }}</div>
+</section>
+{{ end }}
+
+{{ if .IsHome }}
+{{ range $i, $p := (where .Site.RegularPages "Section" "card") }}
+<section class="article-list"{{ with .Params.style }}{{ printf " style=%q" . | safeHTMLAttr }}{{ end }}>
+  <table>
+  <tbody>
+  <tr>
+  {{if (eq (mod $i 2) 0) }}
+  <td class="side-title"><h1>{{ $p.Title }}</h1></td>
+  <td class="spacer spacer-left"></td>
+  <td>{{ $p.Content }}</td>
+  {{ else }}
+  <td>{{ $p.Content }}</td>
+  <td class="spacer spacer-right"></td>
+  <td class="side-title"><h1>{{ $p.Title }}</h1></td>
+  {{ end }}
+  </tr>
+  </tbody>
+  </table>
+</section>
+{{ end }}
+{{ end }}
+
+{{ $pages := .Pages }}
+{{ if .IsHome }}
+{{ $pages = first (default 5 .Site.Params.homePosts) (sort (where .Site.RegularPages "Section" "!=" "") "Date" "desc") }}
+{{ else }}
+{{ $pages = (.Paginate $pages).Pages }}
+{{ end }}
+
+{{ range $pages }}
+  <section class="article-list post-card">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    {{ with .Params.categories }}
+    {{ range first 1 . }}
+    <div class="categories">
+      <a href="{{ relURL (print "/categories/" . "/" | urlize) }}">{{ . }}</a>
+    </div>
+    {{ end }}
+    {{ end }}
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+    <div>
+      {{ if .Date }}<span>{{ .Date.Format "2006-01-02" }}</span>{{ end }}
+      {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
+    </div>
+    <div class="summary">
+      {{ default .Summary .Description | replaceRE "^([A-Za-z])" "&$1 opf;" | replaceRE "^(&[A-Za-z]) (opf;)" "$1$2" | safeHTML }}
+      <a href="{{ .RelPermalink }}" class="more" title="Read More...">Read more &rarr;</a>
+    </div>
+    </td>
+    {{ if $.IsHome }}
+    <td class="spacer spacer-right"></td>
+    <td class="side-title">{{ with .Section }}<h1><a href="{{ print "/" . "/" | relURL }}">{{ . }}</a></h1>{{ end }}</td>
+    {{ end }}
+    </tr>
+    </tbody>
+    </table>
+  </section>
+{{ end }}
+
+{{ if not .IsHome }}
+{{ template "_internal/pagination.html" . }}
+{{ end }}
+
+{{ partial "disqus.html" . }}
+</main>
+</div>
+
+{{ partial "footer.html" . }}

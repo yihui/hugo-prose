@@ -1,0 +1,23 @@
+{{ partial "header.html" . }}
+
+<main>
+<h1>{{ .Title }}</h1>
+
+{{ .Content }}
+
+{{ range .Site.RegularPages.GroupBy "Section" }}
+  <section class="article-list normal-card">
+  <h2 class="archive-title"><a href="{{ print "/" .Key "/" | relURL }}">{{ .Key | pluralize | title }}</a></h2>
+  <ul>
+    {{ range sort .Pages "Date" "desc" }}
+    <li>
+      {{ if .Date }}<span class="date">{{ .Date.Format "2006/01/02" }}</span>{{ end }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  </section>
+{{ end }}
+</main>
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,40 @@
+{{ partial "header.html" . }}
+
+<div class="container single">
+<main>
+<div class="article-meta">
+<h1><span class="title">{{ .Title }}</span></h1>
+{{ with .Params.author }}
+<h3 class="author">
+{{ if reflect.IsSlice . }}{{ delimit . (default " / " $.Site.Params.authorDelimiter) }}{{ else }}{{ . }}{{ end }}
+</h3>
+{{ end }}
+{{ if .Params.date }}<h3 class="date">{{ .Date.Format "2006-01-02" }}</h3>{{ end }}
+<p class="terms">
+  {{ range $i := (slice "categories" "tags") }}
+  {{ with ($.Param $i) }}
+  {{ $i | title }}: {{ range $k := . }}<a href="{{ relURL (print "/" $i "/" $k | urlize) }}">{{$k}}</a> {{ end }}
+  {{ end }}
+  {{ end }}
+</p>
+</div>
+
+<div class="article">
+{{ .Content }}
+</div>
+</main>
+
+{{ partial "appendix.html" . }}
+
+{{ if .Section }}
+<nav class="post-nav">
+  <span class="nav-next">{{ with .PrevInSection }}&larr; <a href="{{ .RelPermalink }}" title="Next post (older)">{{ .Title }}</a>{{ end }}</span>
+  &hercon;
+  <span class="nav-prev">{{ with .NextInSection }}<a href="{{ .RelPermalink }}" title="Previous post (newer)">{{ .Title }}</a> &rarr;{{ end }}</span>
+</nav>
+{{ end }}
+
+{{ partial "disqus.html" . }}
+</div>
+
+{{ partial "footer.html" . }}

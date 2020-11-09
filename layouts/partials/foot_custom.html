@@ -1,0 +1,22 @@
+{{ if .IsPage }}
+<script async src="{{ relURL "/js/features.js" }}" data-page-features="{{ (or .Params.features .Site.Params.pageFeatures) | jsonify}}"></script>
+{{ end }}
+
+<script async src="//yihui.org/js/center-img.js"></script>
+
+{{ if and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$")) }}
+<script src="//yihui.org/js/math-code.js"></script>
+<script async src="//mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+{{ end }}
+
+{{ template "_internal/google_analytics.html" . }}
+
+{{ if and (not .Params.disable_highlight) (in (string .Content) "</pre>") }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+{{ end }}

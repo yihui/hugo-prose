@@ -1,0 +1,19 @@
+  <footer>
+  {{ partial "foot_custom.html" . }}
+  <div class="footer">
+  {{ with .Site.Params.footer }}
+  <ul class="copyright">
+    <li>{{ . | markdownify }}</li>
+  </ul>
+  {{ end }}
+  <ul>
+    {{ range .Site.Menus.footer }}
+    <li{{ if .Identifier }} class="optional"{{ end }}>
+      <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+  </div>
+  </footer>
+  </body>
+</html>

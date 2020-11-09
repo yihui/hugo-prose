@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ with .Title }} {{ . }} | {{ end }}{{ .Site.Title }}</title>
+    <!-- uncomment this to add favicon -->
+    <!-- <link rel="icon" type="image/png" href="{{ "/icons/favicon.png" | relURL }}" /> -->
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/fonts.css" | relURL }}" />
+    <link rel="stylesheet" href="{{ "/css/custom.css" | relURL }}" />
+    {{ partial "head_custom.html" . }}
+  </head>
+
+  <body>
+
+    <nav class="menu">
+    <ul>
+      <li class="left">
+        <a href="{{ relURL "/" }}"><span>{{ .Site.Title }}</span></a>
+      </li>
+      {{ range .Site.Menus.header }}
+      <li{{ if .Identifier }} class="optional"{{ end }}>
+        <a href="{{ .URL | relURL }}"{{ if eq .URL $.RelPermalink }} class="active"{{ end }}>{{ .Name }}</a>
+      </li>
+      {{ end }}
+    </ul>
+    </nav>
