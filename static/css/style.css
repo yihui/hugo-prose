@@ -4,7 +4,7 @@ body {
   margin: 0 auto 0;
   line-height: 1.5em;
 }
-body, .side { background: #fafafa; }
+body, .side, .menu { background: #fafafa; }
 main, .menu ul, .footer, .single section, .post-nav {
   max-width: 800px;
   margin: 0 auto 0;
@@ -38,6 +38,11 @@ main {
 
 /* header and footer areas */
 .menu { box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1); }
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
 .menu li, .terms li, .footer li { display: inline-block; }
 .article-meta { background: #f8f8f8; }
 footer { background: darkslategray; }
