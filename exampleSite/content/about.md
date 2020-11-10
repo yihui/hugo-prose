@@ -130,6 +130,10 @@ params:
   footer: "&copy; Frida Gomam 2015 -- 2020"
 ```
 
+### Comments
+
+Disqus, Utterances
+
 ## Articles
 
 > At the moment, I'm too tired to complete the documentation. If you want to be
