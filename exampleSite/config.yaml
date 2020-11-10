@@ -38,7 +38,10 @@ menu:
       identifier: "tags"
     - name: Subscribe
       url: "index.xml"
+      weight: 4
       identifier: "subscribe"
+    - name: Back to top
+      url: "#"
 
 params:
   homePosts: 6
