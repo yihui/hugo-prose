@@ -1,4 +1,4 @@
-<script async src="{{ relURL "/js/features.js" }}" data-page-features="{{ (or .Params.features .Site.Params.pageFeatures) | jsonify}}"></script>
+<script async src="{{ relURL "/js/features.js" }}" data-page-features="{{ (slice .Params.features .Site.Params.pageFeatures) | jsonify}}"></script>
 
 <script async src="//yihui.org/js/center-img.js"></script>
 

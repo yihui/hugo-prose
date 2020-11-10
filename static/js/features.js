@@ -1,10 +1,25 @@
 (function(d) {
   // implement some features for articles: sidenotes, number_sections, toc
 
-  var config = [];
+  var config = [], isArray = function(x) {
+    return x instanceof Array;
+  };
   if (d.currentScript) {
     config = d.currentScript.dataset['pageFeatures'];
     config = config ? JSON.parse(config) : [];
+    var c1 = config[0], c2 = config[1];  // local to override global config
+    if (!isArray(c1)) c1 = [];
+    if (!isArray(c2)) c2 = [];
+    if (c1.length > 0) c2.forEach(function(x) {
+      x1 = x.replace(/^[+-]/, '');
+      var found = false;
+      c1.forEach(function(x2) {
+        if (found) return;
+        found = x2.replace('/^[+-]/', '') == x1;
+      });
+      !found && c1.push(x);
+    });
+    config = c1;
   }
 
   var removeEl = function(el) {
