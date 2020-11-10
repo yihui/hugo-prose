@@ -1,7 +1,5 @@
 (function(d) {
   // implement some features for articles: sidenotes, number_sections, toc
-  var article = d.querySelector('main .article');
-  if (!article) return;
 
   var config = [];
   if (d.currentScript) {
@@ -21,6 +19,10 @@
   }
 
   var i, a, s;
+
+  // the rest of features are only for articles
+  var article = d.querySelector('main .article');
+  if (!article) return;
 
   // move <figcaption> out of <figure> so that <figure> can scroll
   d.querySelectorAll('.fullscroll figure > figcaption').forEach(function(el) {
