@@ -1,3 +1,7 @@
+---
+title: Home
+---
+
 **Lucius Annaeus Seneca** (c. 4 BC -- AD 65), also known as **Seneca the Younger**, was a Hispano-Roman Stoic philosopher, statesman, dramatist, and—in one work—satirist from the Silver Age of Latin literature.
 
 <div class="quote-right">
