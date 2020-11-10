@@ -37,7 +37,13 @@ main {
 .post-card { margin-top: 1em; }
 
 /* header and footer areas */
-.menu { box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1); }
+.menu {
+  box-shadow: 0px 10px 10px -5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  background: #FAFAFA;
+  z-index: 2;
+}
 .menu li, .terms li, .footer li { display: inline-block; }
 .article-meta { background: #f8f8f8; }
 footer { background: darkslategray; }
