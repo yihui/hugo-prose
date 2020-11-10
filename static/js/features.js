@@ -16,7 +16,7 @@
     prev.after ? prev.after(sib) : (
       prev.parentNode.insertBefore(sib, prev.nextSibling)
     );
-  }
+  };
 
   var i, a, s;
 
@@ -24,9 +24,9 @@
   config.indexOf('-sticky_menu') === -1 && config.indexOf('+sticky_menu') >= 0 &&
     d.querySelector('.menu').classList.add('sticky-top');
 
-  // the rest of features are only for articles
+  // process single articles
   var article = d.querySelector('main .article');
-  if (!article) return;
+  if (!article) article = d.createElement('div');
 
   // move <figcaption> out of <figure> so that <figure> can scroll
   d.querySelectorAll('.fullscroll figure > figcaption').forEach(function(el) {
@@ -36,13 +36,11 @@
 
   // move footnotes to sidenotes
   if (config.indexOf('-sidenotes') === -1) {
-    var fn, fns = d.querySelectorAll('section.footnotes li[id^="fn:"]'), n;
-    for (i = 0; i < fns.length; i++) {
-      fn = fns[i];  // footnote item
+    d.querySelectorAll('section.footnotes li[id^="fn:"]').forEach(function(fn) {
       a = d.querySelector('a[href="#' + fn.id + '"]');  // <a> that contains footnote number in body
-      if (!a) continue;
+      if (!a) return;
       a.removeAttribute('href');
-      n = a.innerText;   // footnote number
+      var n = a.innerText;   // footnote number
       s = d.createElement('div');  // insert a side div next to n in body
       s.className = 'side side-right';
       s.innerHTML = fn.innerHTML;
@@ -51,9 +49,9 @@
       removeEl(s.querySelector('a[href^="#fnref:"]'));  // remove backreference in footnote
       removeEl(fn);
       insertAfter(a.parentNode, s);  // insert note after the <sup> that contains a
-    }
+    });
     // remove the footnote section if it's empty now
-    fns = d.querySelector('section.footnotes');
+    var fns = d.querySelector('section.footnotes');
     fns && fns.querySelector('ol').childElementCount === 0 && removeEl(fns);
   }
 
@@ -84,8 +82,7 @@
     numbered = has_number(h.innerText);
     if (numbered) break;
   }
-  if (!numbered) for (i = 0; i < hs.length; i++) {
-    h = hs[i];
+  if (!numbered) hs.forEach(function(h) {
     t1 = level(h.tagName);
     if (t1 < t0) {
       for (var j = t1; j < dict.length; j++) {
@@ -94,7 +91,7 @@
     }
     h.insertBefore(d.createTextNode(number_section(t1 - 1)), h.firstChild);
     t0 = t1;
-  }
+  });
 
   // build TOC
   var build_toc = config.indexOf('+toc') >= 0 ? true : (
@@ -107,8 +104,7 @@
     h = d.createElement('h3'); h.innerText = 'Contents'
     toc.appendChild(h);
     t0 = 0;  // pretend there is a top-level <h0> for the sake of convenience
-    for (i = 0; i < hs.length; i++) {
-      h = hs[i];
+    hs.forEach(function(h) {
       t1 = level(h.tagName);
       li = d.createElement('li');
       if (t1 > t0) {
@@ -130,7 +126,7 @@
       p.appendChild(a);
       has_number(s) && p.parentNode.classList.add('numbered');
       t0 = t1;
-    }
+    });
     hs.length && article.insertBefore(toc, article.firstChild);
   }
 })(document);
