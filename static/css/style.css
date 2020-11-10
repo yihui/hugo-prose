@@ -3,6 +3,7 @@
 body {
   margin: 0 auto 0;
   line-height: 1.5em;
+  overflow-x: hidden;
 }
 body, .side, .menu { background: #fafafa; }
 main, .menu ul, .footer, .single section, .post-nav {
