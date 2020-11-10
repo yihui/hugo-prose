@@ -20,6 +20,10 @@
 
   var i, a, s;
 
+  // make the top menu sticky
+  config.indexOf('-sticky_menu') === -1 && config.indexOf('+sticky_menu') >= 0 &&
+    d.querySelector('.menu').classList.add('sticky-top');
+
   // the rest of features are only for articles
   var article = d.querySelector('main .article');
   if (!article) return;

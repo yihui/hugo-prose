@@ -84,6 +84,22 @@ screens.[^2]
 [^2]: These may be the unimportant items that you do not mind hiding on smaller
     screens.
 
+The header menu can be made sticky via the parameter `pageFeatures` in
+`config.yaml`:
+
+``` yaml
+params:
+  pageFeatuers: [+sticky_menu]
+```
+
+This feature can be disabled per-page if enabled globally in
+`config.yaml`----add `-sticky_menu` to the `features` YAML field in the single
+page, e.g.,
+
+``` yaml
+features: [-sticky_menu]
+```
+
 ### Home page
 
 The body of the home page consists of an introduction, followed by a series of
