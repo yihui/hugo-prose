@@ -20,10 +20,6 @@
 
   var i, a, s;
 
-  // make the top menu sticky
-  config.indexOf('-sticky_menu') === -1 && config.indexOf('+sticky_menu') >= 0 &&
-    d.querySelector('.menu').classList.add('sticky-top');
-
   // process single articles
   var article = d.querySelector('main .article');
   if (!article) article = d.createElement('div');
@@ -128,5 +124,15 @@
       t0 = t1;
     });
     hs.length && article.insertBefore(toc, article.firstChild);
+  }
+
+  // make the top menu sticky
+  if (config.indexOf('-sticky_menu') === -1 && config.indexOf('+sticky_menu') >= 0) {
+    s = d.querySelector('.menu');
+    if (s) {
+      s.classList.add('sticky-top');
+      var toc = d.querySelector('#TOC');
+      if (toc) toc.style.top = s.offsetHeight + 'px';  // make sure menu won't cover TOC
+    }
   }
 })(document);
