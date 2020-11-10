@@ -47,7 +47,7 @@
 
   // move footnotes to sidenotes
   if (config.indexOf('-sidenotes') === -1) {
-    d.querySelectorAll('section.footnotes li[id^="fn:"]').forEach(function(fn) {
+    d.querySelectorAll('.footnotes > ol > li[id^="fn"]').forEach(function(fn) {
       a = d.querySelector('a[href="#' + fn.id + '"]');  // <a> that contains footnote number in body
       if (!a) return;
       a.removeAttribute('href');
@@ -57,13 +57,18 @@
       s.innerHTML = fn.innerHTML;
       s.firstElementChild.innerHTML = '<span class="bg-number">' + n +
         '</span> ' + s.firstElementChild.innerHTML;
-      removeEl(s.querySelector('a[href^="#fnref:"]'));  // remove backreference in footnote
+      removeEl(s.querySelector('a[href^="#fnref"]'));  // remove backreference in footnote
       removeEl(fn);
-      insertAfter(a.parentNode, s);  // insert note after the <sup> that contains a
+      // insert note after the <sup> that contains a; if parent is not <sup>, insert after a
+      insertAfter(a.parentNode.tagName === 'SUP' ? a.parentNode : a, s);
     });
     // remove the footnote section if it's empty now
-    var fns = d.querySelector('section.footnotes');
-    fns && fns.querySelector('ol').childElementCount === 0 && removeEl(fns);
+    d.querySelectorAll('.footnotes').forEach(function(fn) {
+      // there must be a <hr> and an <ol> left
+      var items = fn.children;
+      if (items.length !== 2 || items[0].tagName !== 'HR' || items[1].tagName !== 'OL') return;
+      items[1].childElementCount === 0 && removeEl(fn);
+    });
   }
 
   // header level: <hN> -> N
