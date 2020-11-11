@@ -72,17 +72,18 @@ menu:
     - name: Categories
       url: "/categories/"
       weight: 2
-      identifier: "categories"
+      pre: "optional"
 ```
 
 The `url` of a menu item can be either a relative URL pointing to a page on this
 website, or an external link (e.g., `url: "https://github.com/yihui"`). The
 order of the menu items is determined by the `weight` values. If a menu item has
-an `identifier`, it indicates that this menu item will be hidden on small
-screens.[^2]
+a `pre` value, it will be used as the class of the menu item. The special value
+`optional` indicates that this menu item will be hidden on small screens.[^2]
 
-[^2]: These may be the unimportant items that you do not mind hiding on smaller
-    screens.
+[^2]: For example, `pre: "optional"` will generate the menu item
+    `<li class="optional">`. It may be an unimportant item that you do not mind
+    hiding on smaller screens.
 
 The header menu can be made sticky via the parameter `pageFeatures` in
 `config.yaml`:
@@ -341,3 +342,5 @@ the dark mode.
 ## Custom layouts
 
 ## TODO
+
+section anchors

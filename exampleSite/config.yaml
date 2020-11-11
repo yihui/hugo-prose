@@ -31,15 +31,15 @@ menu:
     - name: Categories
       url: "/categories/"
       weight: 2
-      identifier: "categories"
+      pre: "optional"
     - name: Tags
       url: "/tags/"
       weight: 3
-      identifier: "tags"
-    - name: Subscribe
-      url: "index.xml"
+      pre: "optional"
+    - name: Suggest an edit
+      url: "#"
       weight: 4
-      identifier: "subscribe"
+      identifier: "menu-edit"
     - name: Back to top
       url: "#"
 
