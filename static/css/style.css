@@ -306,9 +306,6 @@ th, td { padding: 5px; }
     padding: initial;
   }
 }
-@media (max-width: 650px) {
-  .menu .active { background: none; }
-}
 
 /* dark theme */
 @media (prefers-color-scheme: dark) {
