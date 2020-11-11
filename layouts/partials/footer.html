@@ -9,7 +9,7 @@
   <ul>
     {{ range .Site.Menus.footer }}
     <li{{ if .Identifier }} class="optional"{{ end }}>
-      <a href="{{ .URL | relURL }}">{{ .Name }}</a>
+      <a href="{{ if (findRE "^#" .URL ) }}{{ .URL }}{{ else }}{{ .URL | relURL }}{{ end }}">{{ .Name }}</a>
     </li>
     {{ end }}
   </ul>
