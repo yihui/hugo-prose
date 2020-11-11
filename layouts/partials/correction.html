@@ -1,4 +1,4 @@
-{{ if (and .File.Path .Site.Params.editLink) }}
+{{ if (and .File .Site.Params.editLink) }}
 <div>
   <div class="side side-left"><h3>Suggest changes</h3></div>
   {{ $filePath := .File.Path }}
