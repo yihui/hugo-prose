@@ -20,5 +20,6 @@
   </div>
   {{ end }}
   </footer>
+  <script async src="{{ relURL "/js/features.js" }}" data-page-features="{{ (slice .Params.features .Site.Params.pageFeatures (index .Params "toc-title")) | jsonify}}"></script>
   </body>
 </html>
