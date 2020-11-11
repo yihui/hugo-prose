@@ -248,6 +248,7 @@ blockquote {
 .nav-next { text-align: left; }
 .footer, .footer a { color: #fff; }
 .more { font-style: italic; }
+.hidden { display: none; }
 
 table {
   margin: 1em auto auto;

@@ -178,4 +178,16 @@
       if (toc) toc.style.top = s.offsetHeight + 'px';  // make sure menu won't cover TOC
     }
   }
+
+  // add the edit link to the menu "Suggest an edit"
+  s = d.querySelector('li#menu-edit');
+  if (s) {
+    a = d.querySelector('a#edit-link');
+    if (a) {
+      s = s.querySelector('a[href="#"]');
+      if (s) s.href = a.href;
+    } else {
+      removeEl(s);  // no edit link available; delete the menu item
+    }
+  }
 })(document);

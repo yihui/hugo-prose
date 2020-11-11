@@ -14,6 +14,11 @@
     {{ end }}
   </ul>
   </div>
+  {{ if not ($.Scratch.Get "has_appendix") }}
+  <div class="footer hidden">
+  {{ partial "correction.html" . }}
+  </div>
+  {{ end }}
   </footer>
   </body>
 </html>
