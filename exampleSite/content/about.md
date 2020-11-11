@@ -324,12 +324,13 @@ as:
 
 ### Screen size
 
-|                   | \< 650px | 650 - 800px | 800 - 1280px | \> 1280px |
-|-------------------|----------|-------------|--------------|-----------|
-| Menu              |          |             |              |           |
-| Table of contents |          |             |              |           |
-| Floats            |          |             |              |           |
-| Home posts        |          |             |              |           |
+|                   | Attribute \\ width | 650 - 800px | 800 - 1280px  | \> 1280px                  |
+|-------------------|--------------------|-------------|---------------|----------------------------|
+| Menu              | optional items     | hidden      | shown         | \<=                        |
+| Table of contents | position           | =\>         | body / static | left margin / sticky       |
+| Floats            | position           | =\>         | body / static | beside or overlapping body |
+| Sidenotes         | position           | =\>         | body / static | side                       |
+| Home posts        | layout             | one column  | two columns   | \<=                        |
 
 ### Dark theme
 
