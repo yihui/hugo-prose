@@ -1,0 +1,240 @@
+---
+title: R Markdown Demo
+author: Yihui Xie
+date: '2020-11-10'
+slug: r-markdown-demo
+features: []
+toc-title: Outline
+bibliography: packages.bib
+---
+
+<script src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/header-attrs/header-attrs.js"></script>
+<link href="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/anchor-sections/anchor-sections.js"></script>
+
+
+<div id="floats" class="section level1">
+<h1>Floats</h1>
+<div id="full-width-figures" class="section level2">
+<h2>Full-width figures</h2>
+<p>Use a fenced <code>Div</code> with the class <code>fullwidth</code>, e.g.,</p>
+<pre class="md"><code>::: {.fullwidth}
+Any Markdown content or code blocks here.
+
+```{r, echo=FALSE, fig.dim=c(14, 4)}
+plot(sunspots)
+```
+:::</code></pre>
+<div class="fullwidth">
+<div class="figure"><span id="fig:sunspots"></span>
+<img src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/figure-html/sunspots-1.svg" alt="Monthly mean relative sunspot numbers from 1749 to 1983. Collected at Swiss Federal Observatory, Zurich until 1960, then Tokyo Astronomical Observatory." width="1344" />
+<p class="caption">
+Figure 1: Monthly mean relative sunspot numbers from 1749 to 1983. Collected at Swiss Federal Observatory, Zurich until 1960, then Tokyo Astronomical Observatory.
+</p>
+</div>
+</div>
+<p>If you add the class <code>fullscroll</code> to the <code>Div</code>, the figure will be scrollable,
+e.g.,</p>
+<pre class="md"><code>::: {.fullwidth .fullscroll}
+
+:::</code></pre>
+<div class="fullwidth fullscroll">
+<div class="figure"><span id="fig:scroll"></span>
+<img src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/figure-html/scroll-1.svg" alt="This is a super wide figure that you need to scroll to view it fully." width="2880" />
+<p class="caption">
+Figure 2: This is a super wide figure that you need to scroll to view it fully.
+</p>
+</div>
+</div>
+</div>
+<div id="embedded-figures" class="section level2">
+<h2>Embedded figures</h2>
+<p>You can embed any elements (typically figures) that span into the page margin.
+Use a fenced <code>Div</code> with the class <code>embed-left</code> or <code>embed-right</code>, e.g.,</p>
+<div class="embed-right">
+<div class="figure"><span id="fig:embed-plot"></span>
+<img src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/figure-html/embed-plot-1.svg" alt="This is a figure embedded on the right." width="480" />
+<p class="caption">
+Figure 3: This is a figure embedded on the right.
+</p>
+</div>
+</div>
+<pre class="md"><code>::: {.embed-right}
+
+Here is a special figure.
+
+```{r}
+plot(cars)
+```
+:::</code></pre>
+<p>If you want to embed a table, that will be okay, too. Really, you can embed
+anything.</p>
+<pre class="md"><code>::: {.embed-left}
+```{r, echo=FALSE}
+knitr::kable(head(mtcars), caption = &#39;An example dataset.&#39;)
+```
+:::</code></pre>
+<div class="embed-left">
+<table>
+<caption><span id="tab:unnamed-chunk-1">Table 1: </span>An example dataset.</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+<th align="right">am</th>
+<th align="right">gear</th>
+<th align="right">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Valiant</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Now I have generate some text to fill the space on the right:
+hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer.</p>
+</div>
+</div>
+<div id="text-elements" class="section level1">
+<h1>Text elements</h1>
+<div id="table-of-contents" class="section level2">
+<h2>Table of contents</h2>
+<p>TOC should be automatically generated unless it is disabled via
+<code>features: [-toc]</code> in YAML. To define the TOC title, use the <code>toc-title</code> field
+in YAML.</p>
+</div>
+<div id="section-numbers" class="section level2">
+<h2>Section numbers</h2>
+<p>Sections should be automatically numbered unless Pandoc has already numbered
+them,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> or the feature is disabled via <code>features: [-number_sections]</code>.</p>
+</div>
+<div id="footnotes" class="section level2">
+<h2>Footnotes</h2>
+<p>Footnotes should be automatically moved to the right margin,<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> unless the
+feature is disabled via <code>features: [-sidenotes]</code>.</p>
+</div>
+<div id="sidenotes" class="section level2">
+<h2>Sidenotes</h2>
+<p>Sidenotes can be generated via a div with classes <code>side</code> and <code>side-left</code> or
+<code>side-right</code>. You can use either the HTML syntax <code>&lt;div class="side side-left"&gt;</code>
+or Pandoc’s fenced <code>Div</code>, e.g.,</p>
+<div class="side side-right">
+<p>This is a <strong>sidenote</strong> on the right side when the window is wider than 1280px.</p>
+</div>
+<pre class="md"><code>::: {.side .side-right}
+This is a **sidenote** on the right.
+:::</code></pre>
+</div>
+<div id="citations" class="section level2">
+<h2>Citations</h2>
+<p>Use <code>bibliography</code> or <code>references</code> in YAML to include the bibliography database,
+and use <code>@</code> to cite items, e.g., <code>@R-base</code> generates <span class="citation"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>.</p>
+<pre class="r"><code>knitr::write_bib(&#39;base&#39;, &#39;packages.bib&#39;)</code></pre>
+<p>As you can see above, we generated a <code>.bib</code> database with <code>knitr::write_bib()</code>.</p>
+<p>Citation entries are displayed in the right margin by default like footnotes. To
+disable this behavior, set <code>features: [-sidenotes]</code> in YAML.</p>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-R-base" class="csl-entry">
+R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Apply the option <code>number_sections: true</code> to the output format
+<code>blogdown::html_page</code> in YAML.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>For example, this is a footnote.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>

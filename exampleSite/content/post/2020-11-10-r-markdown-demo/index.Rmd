@@ -1,0 +1,146 @@
+---
+title: R Markdown Demo
+author: Yihui Xie
+date: '2020-11-10'
+slug: r-markdown-demo
+features: []
+toc-title: Outline
+bibliography: packages.bib
+---
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(fig.retina = 2, dev = if (xfun::loadable('svglite')) 'svglite' else 'svg')
+```
+
+# Floats
+
+## Full-width figures
+
+Use a fenced `Div` with the class `fullwidth`, e.g.,
+
+```` {.md}
+::: {.fullwidth}
+Any Markdown content or code blocks here.
+
+```{r, echo=FALSE, fig.dim=c(14, 4)}`r ''`
+plot(sunspots)
+```
+:::
+````
+
+::: {.fullwidth}
+```{r, sunspots, echo=FALSE, fig.dim=c(14, 4), fig.cap='Monthly mean relative sunspot numbers from 1749 to 1983. Collected at Swiss Federal Observatory, Zurich until 1960, then Tokyo Astronomical Observatory.'}
+par(mar = c(4, 4, .1, .1), bg = 'lightgoldenrodyellow', fg = 'red', las = 1)
+plot(sunspots, col = 'red', panel.first = grid())
+```
+:::
+
+If you add the class `fullscroll` to the `Div`, the figure will be scrollable,
+e.g.,
+
+``` {.md}
+::: {.fullwidth .fullscroll}
+
+:::
+```
+
+::: {.fullwidth .fullscroll}
+```{r, scroll, ref.label='sunspots', echo=FALSE, fig.dim=c(30, 3), fig.cap='This is a super wide figure that you need to scroll to view it fully.'}
+```
+:::
+
+## Embedded figures
+
+You can embed any elements (typically figures) that span into the page margin.
+Use a fenced `Div` with the class `embed-left` or `embed-right`, e.g.,
+
+::: {.embed-right}
+```{r, embed-plot, echo=FALSE, fig.dim=c(5, 2.5), fig.cap='This is a figure embedded on the right.'}
+par(mar = c(3, 3, .3, .3), las = 1, cex.axis = .8, cex.lab = .8, mgp = c(2, .5, 0))
+plot(cars, pch = 19, col = 'steelblue', panel.first = grid())
+```
+:::
+
+```` {.md}
+::: {.embed-right}
+
+Here is a special figure.
+
+```{r}`r ''`
+plot(cars)
+```
+:::
+````
+
+If you want to embed a table, that will be okay, too. Really, you can embed
+anything.
+
+```` {.md}
+::: {.embed-left}
+```{r, echo=FALSE}`r ''`
+knitr::kable(head(mtcars), caption = 'An example dataset.')
+```
+:::
+````
+
+::: {.embed-left}
+```{r, echo=FALSE}
+knitr::kable(head(mtcars), caption = 'An example dataset.')
+```
+:::
+
+Now I have generate some text to fill the space on the right:
+`r paste(rep('hold my beer', 60), collapse = ' ')`.
+
+# Text elements
+
+## Table of contents
+
+TOC should be automatically generated unless it is disabled via
+`features: [-toc]` in YAML. To define the TOC title, use the `toc-title` field
+in YAML.
+
+## Section numbers
+
+Sections should be automatically numbered unless Pandoc has already numbered
+them,[^1] or the feature is disabled via `features: [-number_sections]`.
+
+[^1]: Apply the option `number_sections: true` to the output format
+    `blogdown::html_page` in YAML.
+
+## Footnotes
+
+Footnotes should be automatically moved to the right margin,[^2] unless the
+feature is disabled via `features: [-sidenotes]`.
+
+[^2]: For example, this is a footnote.
+
+## Sidenotes
+
+Sidenotes can be generated via a div with classes `side` and `side-left` or
+`side-right`. You can use either the HTML syntax `<div class="side side-left">`
+or Pandoc's fenced `Div`, e.g.,
+
+::: {.side .side-right}
+This is a **sidenote** on the right side when the window is wider than 1280px.
+:::
+
+``` {.md}
+::: {.side .side-right}
+This is a **sidenote** on the right.
+:::
+```
+
+## Citations
+
+Use `bibliography` or `references` in YAML to include the bibliography database,
+and use `@` to cite items, e.g., `@R-base` generates @R-base.
+
+```{r}
+knitr::write_bib('base', 'packages.bib')
+```
+
+As you can see above, we generated a `.bib` database with `knitr::write_bib()`.
+
+Citation entries are displayed in the right margin by default like footnotes. To
+disable this behavior, set `features: [-sidenotes]` in YAML.
