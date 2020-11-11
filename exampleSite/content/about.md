@@ -341,6 +341,3 @@ the dark mode.
 ## Custom layouts
 
 ## TODO
-
-Currently only `.md` files are tested. The full support for `.Rmd` and
-`.Rmarkdown` will come soon.

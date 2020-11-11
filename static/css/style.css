@@ -29,7 +29,7 @@ main {
 .article, .appendix {
   position: relative;
 }
-.article-list, .single main, .single .appendix, .fullwidth {
+.article-list, .single main, .single .appendix, .fullwidth, .embed-left, .embed-right {
   margin-top: 2em;
   padding: 1em;
   box-shadow: 0 0 8px #ccc;
@@ -73,7 +73,7 @@ footer { background: darkslategray; }
   font-size: 1.1em;
   line-height: 1em;
 }
-.article-meta .terms, .appendix, .footnotes, main .side > *, figcaption { font-size: .9em; }
+.article-meta .terms, .appendix, .footnotes, main .side > *, figcaption, .caption { font-size: .9em; }
 .terms a {
   border: 1px solid lightslategray;
   line-height: 2em;
@@ -95,10 +95,7 @@ hr {
 }
 .footnotes hr { margin-left: 0; }
 
-#TOC {
-  position: sticky;
-  top: 0;
-}
+#TOC { top: 0; }
 #TOC ul { list-style-position: inside; }
 #TOC > ul {
   padding: 0;
@@ -145,7 +142,10 @@ pre code:not(.hljs), pre .hljs {
 }
 h3.side-left { text-align: right; }
 .quote-left, .quote-right { width: 45%; }
-.embed-left, .embed-right { max-width: 600px; }
+.embed-left, .embed-right {
+  margin-top: auto;
+  padding: 0;
+}
 .quote-left, .embed-left {
   float: left;
   margin-right: 1em;
@@ -156,6 +156,7 @@ h3.side-left { text-align: right; }
 }
 .embed-left { margin-left: calc(-200px - 2em); }
 .embed-right { margin-right: calc(-200px - 2em); }
+.side-left, .embed-left, #TOC { position: sticky; }
 
 .spacer { width: 1em; }
 .spacer-left { border-left: 1px dashed; }
@@ -173,15 +174,19 @@ h3.side-left { text-align: right; }
   min-width: 100%;
   background: white;
 }
-.fullscroll, .fullscroll figure { overflow-x: auto; }
-.fullwidth figcaption {
+.fullscroll, .fullscroll figure, .fullscroll .figure { overflow-x: auto; }
+.fullwidth figcaption, .fullwidth .caption {
   margin-left: calc(50% - 400px);
   width: 800px;
-  padding: 0 1em;
+  padding: 1em 1em 0;
 }
 
 /* misc elements */
 img, iframe, video { max-width: 100%; }
+iframe, video {
+  display: block;
+  margin: auto;
+}
 .title, code, .article-list .side-title { hyphens: none; }
 blockquote, code, .article tbody tr:nth-child(odd) { background: #f9f9f9; }
 blockquote {
@@ -270,6 +275,7 @@ th, td { padding: 5px; }
   .embed-left, .embed-right {
     float: inherit;
     margin: auto;
+    padding: 1em;
   }
   .appendix h3 { text-align: initial; }
 }
@@ -285,7 +291,7 @@ th, td { padding: 5px; }
     margin: auto;
   }
   .menu ul, .footer { flex-wrap: wrap; }
-  .fullwidth * { max-width: 100%; }
+  .fullwidth:not(.fullscroll) * { max-width: 100%; }
   .fullwidth {
     margin: initial;
     transform: initial;
@@ -294,7 +300,7 @@ th, td { padding: 5px; }
     background: none;
     border: none;
   }
-  .fullwidth figcaption {
+  .fullwidth figcaption, .fullwidth .caption {
     margin: initial;
     padding: initial;
   }

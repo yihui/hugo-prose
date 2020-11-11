@@ -1,7 +1,7 @@
 (function(d) {
   // implement some features for articles: sidenotes, number_sections, toc
 
-  var config = [], isArray = function(x) {
+  var config = [], toc_title = "Contents", isArray = function(x) {
     return x instanceof Array;
   };
   if (d.currentScript) {
@@ -19,6 +19,8 @@
       });
       !found && c1.push(x);
     });
+    c3 = config[2];  // toc title
+    if (c3) toc_title = c3;
     config = c1;
   }
 
@@ -39,33 +41,39 @@
   var article = d.querySelector('main .article');
   if (!article) article = d.createElement('div');
 
-  // move <figcaption> out of <figure> so that <figure> can scroll
-  d.querySelectorAll('.fullscroll figure > figcaption').forEach(function(el) {
-    var p = el.parentNode;
-    if (p.tagName === 'FIGURE') insertAfter(p, el);
+  // move <figcaption> out of <figure> (and p.caption out of div.figure) so that <figure> can scroll
+  d.querySelectorAll('.fullscroll figure > figcaption, .fullscroll .figure > .caption').forEach(function(el) {
+    insertAfter(el.parentNode, el);
   });
 
-  // move footnotes to sidenotes
+  // move footnotes and citations to sidenotes
   if (config.indexOf('-sidenotes') === -1) {
-    d.querySelectorAll('.footnotes > ol > li[id^="fn"]').forEach(function(fn) {
-      a = d.querySelector('a[href="#' + fn.id + '"]');  // <a> that contains footnote number in body
-      if (!a) return;
-      a.removeAttribute('href');
-      var n = a.innerText;   // footnote number
+    d.querySelectorAll('.footnotes > ol > li[id^="fn"], #refs > div[id^="ref-"]').forEach(function(fn) {
+      a = d.querySelectorAll('a[href="#' + fn.id + '"]');  // <a> that points to note id in body
+      if (a.length === 0) return;
+      a.forEach(function(el) { el.removeAttribute('href') });
+      a = a[0];
       s = d.createElement('div');  // insert a side div next to n in body
       s.className = 'side side-right';
-      s.innerHTML = fn.innerHTML;
-      s.firstElementChild.innerHTML = '<span class="bg-number">' + n +
-        '</span> ' + s.firstElementChild.innerHTML;
-      removeEl(s.querySelector('a[href^="#fnref"]'));  // remove backreference in footnote
+      if (/^fn/.test(fn.id)) {
+        s.innerHTML = fn.innerHTML;
+        var n = a.innerText;   // footnote number
+        s.firstElementChild.innerHTML = '<span class="bg-number">' + n +
+          '</span> ' + s.firstElementChild.innerHTML;
+        removeEl(s.querySelector('a[href^="#fnref"]'));  // remove backreference
+        // insert note after the <sup> or <span> that contains a
+        insertAfter(a.parentNode.tagName === 'SUP' ? a.parentNode : a, s);
+      } else {
+        s.innerHTML = fn.outerHTML;
+        insertAfter(a.parentNode, s);
+      }
       removeEl(fn);
-      // insert note after the <sup> that contains a; if parent is not <sup>, insert after a
-      insertAfter(a.parentNode.tagName === 'SUP' ? a.parentNode : a, s);
     });
-    // remove the footnote section if it's empty now
-    d.querySelectorAll('.footnotes').forEach(function(fn) {
-      // there must be a <hr> and an <ol> left
+    // remove the footnote/citation section if it's empty now
+    d.querySelectorAll('.footnotes, #refs').forEach(function(fn) {
       var items = fn.children;
+      if (fn.id === 'refs') return items.length === 0 && removeEl(fn);
+      // there must be a <hr> and an <ol> left
       if (items.length !== 2 || items[0].tagName !== 'HR' || items[1].tagName !== 'OL') return;
       items[1].childElementCount === 0 && removeEl(fn);
     });
@@ -75,8 +83,8 @@
   var level = function(x) {
     return parseInt(x.replace(/^h/i, ''));
   };
-  // number sections
-  var h, hs = article.querySelectorAll('h1,h2,h3,h4,h5,h6'), t0 = 0, t1,
+  // number sections (need to skip headers in TOC)
+  var h, hs = article.querySelectorAll('h1, :not(#TOC) > h2, h3, h4, h5, h6'), t0 = 0, t1,
     dict = [0, 0, 0, 0, 0, 0];
   // generate section numbers x.x.x
   var number_section = function(i) {
@@ -110,15 +118,14 @@
   });
 
   // build TOC
-  var build_toc = config.indexOf('+toc') >= 0 ? true : (
-    config.indexOf('-toc') >= 0 ? false : !article.querySelector('#TOC')
-  );
+  var toc = article.querySelector('#TOC');
+  removeEl(toc);  // delete and rebuild TOC if it has been generated (by Pandoc)
+  var build_toc = config.indexOf('+toc') >= 0 || config.indexOf('-toc') === -1;
+  toc = d.createElement('div');
   if (build_toc) {
-    var li, toc = d.createElement('div'), ul;
+    var li, ul;
     var p = toc;  // the current parent in which we insert child TOC items
-    toc.id = 'TOC'; toc.className = 'side side-left';
-    h = d.createElement('h3'); h.innerText = 'Contents'
-    toc.appendChild(h);
+    toc.id = 'TOC';
     t0 = 0;  // pretend there is a top-level <h0> for the sake of convenience
     hs.forEach(function(h) {
       t1 = level(h.tagName);
@@ -137,13 +144,29 @@
       if (t1 <= t0) p.parentNode.appendChild(li);
       p = li;
       a = d.createElement('a');
-      s = a.innerText = h.innerText;
-      if (h.id) a.href = '#' + h.id;
+      a.innerText = h.innerText;
+      if (h.id) {
+        a.href = '#' + h.id;
+      } else {
+        s = h.parentNode;
+        if (s.classList.contains('section') && s.id) a.href = '#' + s.id;
+      }
       p.appendChild(a);
-      has_number(s) && p.parentNode.classList.add('numbered');
       t0 = t1;
     });
     hs.length && article.insertBefore(toc, article.firstChild);
+  }
+  toc = article.querySelector('#TOC');
+  if (toc) {
+    var t = toc.firstElementChild;
+    if (t && !/^H[1-6]$/.test(t.tagName)) {
+      var h = d.createElement('h2'); h.innerText = toc_title;
+      toc.insertBefore(h, t);
+    }
+    toc.className = 'side side-left';
+    toc.querySelectorAll('ul > li').forEach(function(p) {
+      has_number(p.innerText) && p.parentNode.classList.add('numbered');
+    });
   }
 
   // make the top menu sticky
@@ -151,7 +174,7 @@
     s = d.querySelector('.menu');
     if (s) {
       s.classList.add('sticky-top');
-      var toc = d.querySelector('#TOC');
+      var toc = article.querySelector('#TOC');
       if (toc) toc.style.top = s.offsetHeight + 'px';  // make sure menu won't cover TOC
     }
   }
