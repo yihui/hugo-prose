@@ -17,7 +17,9 @@ appendix:
     distill?"
     
     The images on this page are from Wikipedia entries [Stoicism](https://en.wikipedia.org/wiki/Stoicism)
-    and [清明上河图](https://zh.wikipedia.org/wiki/%E6%B8%85%E6%98%8E%E4%B8%8A%E6%B2%B3%E5%9C%96).
+    and [清明上河图](https://zh.wikipedia.org/wiki/%E6%B8%85%E6%98%8E%E4%B8%8A%E6%B2%B3%E5%9C%96). The
+    CSS style for draft posts was borrowed from Fabian Tamp's
+    [paperesque](https://github.com/capnfabs/paperesque/) theme.
 features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
@@ -173,10 +175,16 @@ Pandoc/R Markdown.
 Section headers can be automatically numbered, no matter if you use
 Hugo/goldmark or Pandoc/R Markdown.
 
-### Footnotes and sidenotes
+### Footnotes, citations, and sidenotes
 
-Footnotes are moved to the right margin by default. If you want to write
-arbitrary sidenotes, use the classes `side` and `side-left`/`side-right`.
+Footnotes and citation entries[^4] are moved to the right margin by default. If
+you want to write arbitrary sidenotes, use the classes `side` and
+`side-left`/`side-right`.
+
+[^4]: Note that if you want to use citations, you have [the R Markdown
+    format](https://bookdown.org/yihui/blogdown/output-format.html) with the R
+    package **blogdown**. Plain Markdown posts (`.md` files) do not support
+    citations.
 
 <div class="side side-left">
 
@@ -206,9 +214,11 @@ Content to be displayed as a sidenote.
 
 -   Suggest changes
 
--   Citation
+### Drafts
 
-### References
+Mark an article as draft by adding `draft: true` to the YAML metadata. Draft
+articles are styled with a background of diagonal lines and a watermark "Draft."
+For listing pages, draft articles are also indicated by the background.
 
 ## Floats
 

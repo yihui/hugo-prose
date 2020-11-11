@@ -42,7 +42,7 @@
 {{ end }}
 
 {{ range $pages }}
-  <section class="article-list post-card">
+  <section class="article-list post-card{{ if .Draft }} draft{{ end }}">
     <table>
     <tbody>
     <tr>

@@ -249,7 +249,20 @@ blockquote {
 .footer, .footer a { color: #fff; }
 .more { font-style: italic; }
 .hidden { display: none; }
-
+.draft {
+  background: repeating-linear-gradient( 135deg, white, white 10px, #ffd4a3 12px, #ffd4a3 12px );
+}
+.watermark {
+  position: fixed;
+  transform: rotate(-45deg);
+  font-size: 12em;
+  width: 100%;
+  color: lightgray;
+  opacity: 0.3;
+  left: 0;
+  text-align: center;
+  top: 50%;
+}
 table {
   margin: 1em auto auto;
   border-top: 1px solid #666;

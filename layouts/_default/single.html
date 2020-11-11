@@ -2,6 +2,9 @@
 
 <div class="container single">
 <main>
+{{ if .Draft }}
+<div class="watermark">Draft</div>
+{{ end }}
 <div class="article-meta">
 <h1><span class="title">{{ .Title }}</span></h1>
 {{ with .Params.author }}

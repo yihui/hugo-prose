@@ -13,7 +13,7 @@
     {{ partial "head_custom.html" . }}
   </head>
 
-  <body>
+  <body{{ if .Draft }} class="draft"{{ end }}>
 
     <nav class="menu">
     <ul>
