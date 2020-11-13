@@ -1,7 +1,110 @@
-body {
-  font-family: Optima, Candara, Calibri, "Droid Sans", Arial, sans-serif;
+/* alegreya-sans-regular - latin */
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/alegreya-sans-v13-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Alegreya Sans Regular'), local('AlegreyaSans-Regular'),
+       url('../fonts/alegreya-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/alegreya-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
 }
+
+/* alegreya-sans-italic - latin */
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/alegreya-sans-v13-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local('Alegreya Sans Italic'), local('AlegreyaSans-Italic'),
+       url('../fonts/alegreya-sans-v13-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/alegreya-sans-v13-latin-italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* alegreya-sans-500 - latin */
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/alegreya-sans-v13-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Alegreya Sans Medium'), local('AlegreyaSans-Medium'),
+       url('../fonts/alegreya-sans-v13-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/alegreya-sans-v13-latin-500.woff') format('woff'), /* Modern Browsers */
+}
+
+/* alegreya-sans-500italic - latin */
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: italic;
+  font-weight: 500;
+  src: url('../fonts/alegreya-sans-v13-latin-500italic.eot'); /* IE9 Compat Modes */
+  src: local('Alegreya Sans Medium Italic'), local('AlegreyaSans-MediumItalic'),
+       url('../fonts/alegreya-sans-v13-latin-500italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/alegreya-sans-v13-latin-500italic.woff') format('woff'), /* Modern Browsers */
+}
+
+
+/* eb-garamond-regular - latin */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/eb-garamond-v14-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/eb-garamond-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/eb-garamond-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
+}
+
+/* eb-garamond-600 - latin */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/eb-garamond-v14-latin-600.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/eb-garamond-v14-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/eb-garamond-v14-latin-600.woff') format('woff'), /* Modern Browsers */
+}
+
+/* eb-garamond-italic - latin */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/eb-garamond-v14-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/eb-garamond-v14-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/eb-garamond-v14-latin-italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* eb-garamond-600italic - latin */
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/eb-garamond-v14-latin-600italic.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../fonts/eb-garamond-v14-latin-600italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/eb-garamond-v14-latin-600italic.woff') format('woff'), /* Modern Browsers */
+}
+
+body {
+  font-family: "Alegreya Sans", Optima, Candara, Calibri, "Droid Sans", Arial, sans-serif;
+  font-weight: 400;
+}
+
 code {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 85%;
+}
+
+h1 {
+  font-family: "EB Garamond", serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: .1em;
+}
+
+.author {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
 }
