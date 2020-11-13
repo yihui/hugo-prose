@@ -35,6 +35,19 @@
     );
   };
 
+  // <a><b>c</b></a> -> <b><a>c</a></b>
+  var insideOut = function(el) {
+    var p = el.parentNode, x = el.innerHTML,
+      c = document.createElement('div');  // a tmp container
+    insertAfter(p, c);
+    c.appendChild(el);
+    el.innerHTML = '';
+    el.appendChild(p);
+    p.innerHTML = x;  // let the original parent have the content of its child
+    insertAfter(c, c.firstElementChild);
+    removeEl(c);
+  }
+
   var i, a, s;
 
   // process single articles
@@ -61,12 +74,14 @@
         s.firstElementChild.innerHTML = '<span class="bg-number">' + n +
           '</span> ' + s.firstElementChild.innerHTML;
         removeEl(s.querySelector('a[href^="#fnref"]'));  // remove backreference
-        // insert note after the <sup> or <span> that contains a
-        insertAfter(a.parentNode.tagName === 'SUP' ? a.parentNode : a, s);
+        a.parentNode.tagName === 'SUP' && insideOut(a);
       } else {
         s.innerHTML = fn.outerHTML;
-        insertAfter(a.parentNode, s);
+        a = a.parentNode;
       }
+      // insert note after the <sup> or <span> that contains a
+      insertAfter(a, s);
+      a.classList.add('note-ref');
       removeEl(fn);
     });
     // remove the footnote/citation section if it's empty now
