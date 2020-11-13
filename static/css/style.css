@@ -320,7 +320,7 @@ th, td { padding: 5px; }
   }
 }
 
-/* dark theme */
+/* dark theme
 @media (prefers-color-scheme: dark) {
   body {
     background-color: darkslategray;
@@ -329,3 +329,4 @@ th, td { padding: 5px; }
   img { filter: invert(1); }
   .article-list { box-shadow: 0 0 8px #333; }
 }
+*/
