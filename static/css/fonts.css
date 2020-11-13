@@ -8,16 +8,6 @@
        url('../fonts/eb-garamond-v14-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* eb-garamond-500 - latin */
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 500;
-  src: local(''),
-       url('../fonts/eb-garamond-v14-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/eb-garamond-v14-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
 /* eb-garamond-italic - latin */
 @font-face {
   font-family: 'EB Garamond';
@@ -26,16 +16,6 @@
   src: local(''),
        url('../fonts/eb-garamond-v14-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('../fonts/eb-garamond-v14-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-
-/* eb-garamond-500italic - latin */
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: italic;
-  font-weight: 500;
-  src: local(''),
-       url('../fonts/eb-garamond-v14-latin-500italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/eb-garamond-v14-latin-500italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* alegreya-sans-regular - latin */
@@ -96,8 +76,11 @@ h1 > .title,
   letter-spacing: .1em;
 }
 
-.author {
+.author,
+.appendix h3 {
   font-family: "EB Garamond", serif;
   font-style: italic;
   font-weight: 400;
 }
+
+
