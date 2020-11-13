@@ -11,17 +11,9 @@ paginate: 2
 permalinks:
   post: "/post/:year/:month/:day/:slug/"
 
+# some menu items were added via the `menu` option in YAML in posts
 menu:
   header:
-    - name: Home
-      url: "/"
-      weight: 1
-    - name: About
-      url: "/about/"
-      weight: 2
-    - name: Sitemap
-      url: "/sitemap/"
-      weight: 3
     - name: Subscribe
       url: "index.xml"
   footer:

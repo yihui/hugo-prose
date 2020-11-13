@@ -3,6 +3,10 @@ title: About Hugo Prose
 author: Yihui Xie
 categories: [Hugo, Theme]
 tags: [menu, TOC, sidenote, appendix, citation, numbered section]
+menu:
+  header:
+    name: About
+    weight: 2
 appendix:
   acknowledgments: |
     We thank the authors of the [Wowchemy](https://wowchemy.com) theme, [tufte.css](https://github.com/edwardtufte/tufte.css), and the
