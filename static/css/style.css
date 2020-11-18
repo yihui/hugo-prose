@@ -181,6 +181,28 @@ h3.side-left { text-align: right; }
   padding: 1em 1em 0;
 }
 
+/* search */
+.search .menu li, .search .container, .search footer, .search-results { display: none; }
+.search #menu-search, .search .search-results {
+  display: flex;
+  width: 100%;
+}
+.search #menu-search div:first-child { flex-grow: 1; }
+.search input, .search #menu-search a {
+  padding: .5em;
+  font-size: 1.5em;
+}
+.search input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid lightslategray;
+}
+.search-results b {
+  font-weight: normal;
+  background: orange;
+}
+
 /* misc elements */
 img, iframe, video { max-width: 100%; }
 iframe, video {
@@ -328,6 +350,7 @@ th, td { padding: 5px; }
     margin: initial;
     padding: initial;
   }
+  .search input, .search #menu-search a { font-size: 1em; }
 }
 
 /* dark theme */

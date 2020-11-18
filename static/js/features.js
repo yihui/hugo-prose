@@ -210,4 +210,107 @@
       removeEl(s);  // no edit link available; delete the menu item
     }
   }
+
+  // search
+  a = d.querySelector('li#menu-search > a');
+  if (a) {
+    var t = a.innerText, fuse;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      s = a.previousElementSibling;  // the search input
+      if (a.innerText === '×') {
+        if (s) s.style.display = 'none';
+        d.body.classList.remove('search');
+        a.innerText = t;  // restore menu text
+        return;
+      }
+      if (!s) {
+        s = document.createElement('div');
+        s.innerHTML = '<input type="search" class="search-input" disabled placeholder="Loading search index...">';
+        var input = s.firstElementChild;
+        insertBefore(a, s);
+        var c = d.createElement('div');  // container for search results
+        c.className = 'container list search-results';
+        var m = d.createElement('main');
+        c.appendChild(m);
+        insertBefore(d.querySelector('.container'), c);
+        // Esc to close search box when it's empty
+        input.addEventListener('keydown', function(e) {
+          if (this.value === '' && e.key === 'Escape') a.click();
+        });
+        // may need to debounce the search for better performance and UX
+        input.addEventListener('input', function(e) {
+          if (!fuse) return;
+          // highlight the keyword of the maximum length in content
+          var highlight = function(text, matches, len) {
+            var indices;
+            for (var item of matches) {
+              if (item.key === 'content') indices = item.indices;
+            }
+            if (!indices) return text.substr(0, len);
+            var p, pair, k = 0, n = Math.ceil(len / 2);
+            while (pair = indices.shift()) {
+              if (pair[1] - pair[0] >= k) {
+                p = pair;
+                k = p[1] - p[0];
+              }
+            }
+            return (p[0] - n > 0 ? '[...] ' : '') + text.substring(p[0] - n, p[0]) +
+              '<b>' + text.substring(p[0], p[1] + 1) + '</b>' +
+              text.substring(p[1] + 1, p[1] + 1 + n) +
+              (p[1] + 1 + n < text.length ? ' [...] ' : '');
+          };
+          var res, sec = d.createElement('section'), sec2, h, u, sum;
+          sec.className = 'article-list';
+          m.innerHTML = '';
+          // display search results in <section class="article-list"> and highlight keywords
+          for (res of fuse.search(this.value)) {
+            sec2 = sec.cloneNode();
+            h = d.createElement('h1');
+            u = d.createElement('a');
+            u.href = res.item.uri;
+            u.target = '_blank';
+            u.innerText = res.item.title;
+            h.appendChild(u);
+            sum = d.createElement('div');
+            sum.innerHTML = highlight(res.item.content, res.matches, 300);
+            sec2.appendChild(h);
+            sec2.appendChild(sum);
+            m.appendChild(sec2);
+          };
+        });
+        if (!fuse) {
+          // if Fuse has not been loaded, load the latest version from CDN
+          if (!window.Fuse) {
+            var script = d.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js';
+            d.head.appendChild(script);
+          }
+          var request = new XMLHttpRequest();
+          request.responseType = 'json';
+          request.addEventListener('load', function(e) {
+            var res = request.response;
+            if (!res || res.length === 0) {
+              input.placeholder = 'Failed to load search index';
+              return;
+            }
+            input.disabled = false;
+            input.placeholder = 'Type to search';
+            fuse = new Fuse(request.response, {
+              keys: ['title', 'content'],
+              includeMatches: true,
+              ignoreLocation: true,
+              threshold: 0.1
+            });
+          }, false);
+          request.open('GET', '/index.json');
+          request.send(null);
+        }
+      }
+      s.style.display = 'block';
+      s.firstElementChild.focus();
+      a.innerText = '×';
+      d.body.classList.add('search');
+    });
+  }
 })(document);

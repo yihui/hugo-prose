@@ -17,6 +17,9 @@ outputs:
 # some menu items were added via the `menu` option in YAML in posts
 menu:
   header:
+    - name: Search
+      url: "#"
+      identifier: menu-search
     - name: Subscribe
       url: "index.xml"
   footer:

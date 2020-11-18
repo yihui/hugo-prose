@@ -1,4 +1,7 @@
 <script async src="//yihui.org/js/center-img.js"></script>
+{{ with .Site.Params.fuseVersion }}
+<script async src="https://cdn.jsdelivr.net/npm/fuse.js@{{ . }}"></script>
+{{ end }}
 
 {{ if and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$")) }}
 <script src="//yihui.org/js/math-code.js"></script>
