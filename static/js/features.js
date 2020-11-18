@@ -296,6 +296,7 @@
             }
             input.disabled = false;
             input.placeholder = 'Type to search';
+            input.focus();
             fuse = new Fuse(request.response, {
               keys: ['title', 'content'],
               includeMatches: true,
