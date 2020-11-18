@@ -1,7 +1,7 @@
 (function(d) {
   // implement some features for articles: sidenotes, number_sections, toc
 
-  var config = [], toc_title = "Contents", isArray = function(x) {
+  var config = [], toc_title = 'Contents', isArray = function(x) {
     return x instanceof Array;
   };
   if (d.currentScript) {
@@ -29,9 +29,14 @@
     el.remove ? el.remove() : el.parentNode.removeChild(el);
   };
 
-  var insertAfter = function(prev, sib) {
-    prev.after ? prev.after(sib) : (
-      prev.parentNode.insertBefore(sib, prev.nextSibling)
+  var insertAfter = function(target, sib) {
+    target.after ? target.after(sib) : (
+      target.parentNode.insertBefore(sib, target.nextSibling)
+    );
+  };
+  var insertBefore = function(target, sib) {
+    target.before ? target.before(sib) : (
+      target.parentNode.insertBefore(sib, target)
     );
   };
 
