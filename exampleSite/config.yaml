@@ -11,6 +11,9 @@ paginate: 2
 permalinks:
   post: "/post/:year/:month/:day/:slug/"
 
+outputs:
+  home: [html, rss, json]
+
 # some menu items were added via the `menu` option in YAML in posts
 menu:
   header:
