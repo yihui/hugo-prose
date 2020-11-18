@@ -23,7 +23,8 @@ appendix:
     The images on this page are from Wikipedia entries [Stoicism](https://en.wikipedia.org/wiki/Stoicism)
     and [清明上河图](https://zh.wikipedia.org/wiki/%E6%B8%85%E6%98%8E%E4%B8%8A%E6%B2%B3%E5%9C%96). The
     CSS style for draft posts was borrowed from Fabian Tamp's
-    [paperesque](https://github.com/capnfabs/paperesque/) theme.
+    [paperesque](https://github.com/capnfabs/paperesque/) theme. [Wladimir Palant's tutorial](https://palant.info/2020/06/04/the-easier-way-to-use-lunr-search-with-hugo/)
+    helped a lot with our implementation of the client-side search.
 features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
@@ -411,4 +412,3 @@ the dark mode.
 ## TODO
 
 section anchors
-
