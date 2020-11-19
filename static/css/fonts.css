@@ -5,3 +5,6 @@ code {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 85%;
 }
+h1, h2, h3 {
+  font-family: Palatino, Book Antiqua, serif;
+}
