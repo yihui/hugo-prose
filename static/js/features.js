@@ -280,12 +280,6 @@
           };
         });
         if (!fuse) {
-          // if Fuse has not been loaded, load the latest version from CDN
-          if (!window.Fuse) {
-            var script = d.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js';
-            d.head.appendChild(script);
-          }
           var request = new XMLHttpRequest();
           request.responseType = 'json';
           request.addEventListener('load', function(e) {
@@ -305,7 +299,18 @@
             });
           }, false);
           request.open('GET', '/index.json');
-          request.send(null);
+          // if Fuse has not been loaded, load the latest version from CDN
+          if (!window.Fuse) {
+            var script = d.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js';
+            // fetch the search index after Fuse is ready
+            script.onload = function(e) {
+              request.send(null);
+            };
+            d.head.appendChild(script);
+          } else {
+            request.send(null);
+          }
         }
       }
       s.style.display = 'block';
