@@ -3,7 +3,7 @@ title: 'The Tale of Two Bad Mice'
 author: Beatrix Potter
 date: '2015-07-23'
 categories:
-  - book
+  - tale
 tags:
   - mice
 ebook: "http://www.gutenberg.org/ebooks/45264"

@@ -3,7 +3,6 @@ title: 'The Tale of Mrs. Tiggy-Winkle'
 author: Beatrix Potter
 date: '2016-02-14'
 categories:
-  - book
   - tale
 tags:
   - hedgehog
