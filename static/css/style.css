@@ -135,6 +135,7 @@ pre code:not(.hljs), pre .hljs {
   margin-left: calc(-200px - 2em);
   position: sticky;
 }
+blockquote .side-right { margin-right: calc(-200px - 3em); }
 .side-right {
   float: right;
   clear: right;
