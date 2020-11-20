@@ -43,7 +43,7 @@ menu:
 
 params:
   homePosts: 6
-  mainSections: ["post", "work"]
+  mainSections: ["post", "project"]
   editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
