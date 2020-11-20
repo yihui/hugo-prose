@@ -1,6 +1,6 @@
 ---
-title: R Markdown Demo
-author: Yihui Xie
+title: "R Markdown Demo"
+author: "Yihui Xie"
 date: '2020-11-10'
 slug: r-markdown-demo
 features: [+sticky_menu]
@@ -12,9 +12,9 @@ bibliography: packages.bib
 knitr::opts_chunk$set(fig.retina = 2, dev = if (xfun::loadable('svglite')) 'svglite' else 'svg')
 ```
 
-# Floats
+## Floats
 
-## Full-width figures
+### Full-width figures
 
 Use a fenced `Div` with the class `fullwidth`, e.g.,
 
@@ -49,7 +49,7 @@ e.g.,
 ```
 :::
 
-## Embedded figures
+### Embedded figures
 
 You can embed any elements (typically figures) that span into the page margin.
 Use a fenced `Div` with the class `embed-left` or `embed-right`, e.g.,
@@ -92,15 +92,15 @@ knitr::kable(head(mtcars), caption = 'An example dataset.')
 Now I have generate some text to fill the space on the right:
 `r paste(rep('hold my beer', 60), collapse = ' ')`.
 
-# Text elements
+## Text elements
 
-## Table of contents
+### Table of contents
 
 TOC should be automatically generated unless it is disabled via
 `features: [-toc]` in YAML. To define the TOC title, use the `toc-title` field
 in YAML.
 
-## Section numbers
+### Section numbers
 
 Sections should be automatically numbered unless Pandoc has already numbered
 them,[^1] or the feature is disabled via `features: [-number_sections]`.
@@ -108,14 +108,14 @@ them,[^1] or the feature is disabled via `features: [-number_sections]`.
 [^1]: Apply the option `number_sections: true` to the output format
     `blogdown::html_page` in YAML.
 
-## Footnotes
+### Footnotes
 
 Footnotes should be automatically moved to the right margin,[^2] unless the
 feature is disabled via `features: [-sidenotes]`.
 
 [^2]: For example, this is a footnote.
 
-## Sidenotes
+### Sidenotes
 
 Sidenotes can be generated via a div with classes `side` and `side-left` or
 `side-right`. You can use either the HTML syntax `<div class="side side-left">`
@@ -131,7 +131,7 @@ This is a **sidenote** on the right.
 :::
 ```
 
-## Citations
+### Citations
 
 Use `bibliography` or `references` in YAML to include the bibliography database,
 and use `@` to cite items, e.g., `@R-base` generates @R-base.
