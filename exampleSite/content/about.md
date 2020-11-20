@@ -142,6 +142,14 @@ info cards, and then a number of the latest posts and pages.
 
     The default is 6.
 
+-   The `mainSections` parameter can be used to select the sections of pages to
+    be included on the home page, e.g.,
+
+    ``` yaml
+    params:
+      mainSections: ["post", "news"]
+    ```
+
 [^3]: We recommend that you keep the title short so it can fit on one line.
 
 ### Footer
