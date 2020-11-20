@@ -1,6 +1,6 @@
 ---
-title: R Markdown Demo
-author: Yihui Xie
+title: "R Markdown Demo"
+author: "Yihui Xie"
 date: '2020-11-10'
 slug: r-markdown-demo
 features: [+sticky_menu]
@@ -13,10 +13,10 @@ bibliography: packages.bib
 <script src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/anchor-sections/anchor-sections.js"></script>
 
 
-<div id="floats" class="section level1">
-<h1>Floats</h1>
-<div id="full-width-figures" class="section level2">
-<h2>Full-width figures</h2>
+<div id="floats" class="section level2">
+<h2>Floats</h2>
+<div id="full-width-figures" class="section level3">
+<h3>Full-width figures</h3>
 <p>Use a fenced <code>Div</code> with the class <code>fullwidth</code>, e.g.,</p>
 <pre class="md"><code>::: {.fullwidth}
 Any Markdown content or code blocks here.
@@ -47,8 +47,8 @@ Figure 2: This is a super wide figure that you need to scroll to view it fully.
 </div>
 </div>
 </div>
-<div id="embedded-figures" class="section level2">
-<h2>Embedded figures</h2>
+<div id="embedded-figures" class="section level3">
+<h3>Embedded figures</h3>
 <p>You can embed any elements (typically figures) that span into the page margin.
 Use a fenced <code>Div</code> with the class <code>embed-left</code> or <code>embed-right</code>, e.g.,</p>
 <div class="embed-right">
@@ -185,26 +185,26 @@ knitr::kable(head(mtcars), caption = &#39;An example dataset.&#39;)
 hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer hold my beer.</p>
 </div>
 </div>
-<div id="text-elements" class="section level1">
-<h1>Text elements</h1>
-<div id="table-of-contents" class="section level2">
-<h2>Table of contents</h2>
+<div id="text-elements" class="section level2">
+<h2>Text elements</h2>
+<div id="table-of-contents" class="section level3">
+<h3>Table of contents</h3>
 <p>TOC should be automatically generated unless it is disabled via
 <code>features: [-toc]</code> in YAML. To define the TOC title, use the <code>toc-title</code> field
 in YAML.</p>
 </div>
-<div id="section-numbers" class="section level2">
-<h2>Section numbers</h2>
+<div id="section-numbers" class="section level3">
+<h3>Section numbers</h3>
 <p>Sections should be automatically numbered unless Pandoc has already numbered
 them,<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> or the feature is disabled via <code>features: [-number_sections]</code>.</p>
 </div>
-<div id="footnotes" class="section level2">
-<h2>Footnotes</h2>
+<div id="footnotes" class="section level3">
+<h3>Footnotes</h3>
 <p>Footnotes should be automatically moved to the right margin,<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> unless the
 feature is disabled via <code>features: [-sidenotes]</code>.</p>
 </div>
-<div id="sidenotes" class="section level2">
-<h2>Sidenotes</h2>
+<div id="sidenotes" class="section level3">
+<h3>Sidenotes</h3>
 <p>Sidenotes can be generated via a div with classes <code>side</code> and <code>side-left</code> or
 <code>side-right</code>. You can use either the HTML syntax <code>&lt;div class="side side-left"&gt;</code>
 or Pandoc’s fenced <code>Div</code>, e.g.,</p>
@@ -215,8 +215,8 @@ or Pandoc’s fenced <code>Div</code>, e.g.,</p>
 This is a **sidenote** on the right.
 :::</code></pre>
 </div>
-<div id="citations" class="section level2">
-<h2>Citations</h2>
+<div id="citations" class="section level3">
+<h3>Citations</h3>
 <p>Use <code>bibliography</code> or <code>references</code> in YAML to include the bibliography database,
 and use <code>@</code> to cite items, e.g., <code>@R-base</code> generates <span class="citation"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>.</p>
 <pre class="r"><code>knitr::write_bib(&#39;base&#39;, &#39;packages.bib&#39;)</code></pre>

@@ -1,15 +1,14 @@
 (function(d) {
   // implement some features for articles: sidenotes, number_sections, toc
 
-  var config = [], toc_title = 'Contents', isArray = function(x) {
-    return x instanceof Array;
+  var config = [], toc_title = 'Contents', makeArray = function(x) {
+    return x instanceof Array ? x : (x === null ? [] : [x]);
   };
   if (d.currentScript) {
     config = d.currentScript.dataset['pageFeatures'];
     config = config ? JSON.parse(config) : [];
-    var c1 = config[0], c2 = config[1];  // local to override global config
-    if (!isArray(c1)) c1 = [];
-    if (!isArray(c2)) c2 = [];
+    // local c1 to override global config c2
+    var c1 = makeArray(config[0]), c2 = makeArray(config[1]);
     if (c1.length > 0) c2.forEach(function(x) {
       x1 = x.replace(/^[+-]/, '');
       var found = false;
@@ -135,6 +134,10 @@
     }
     h.insertBefore(d.createTextNode(number_section(t1 - 1)), h.firstChild);
     t0 = t1;
+  });
+  // avoid Pandoc's numbering from 0 (e.g., 0.1, 0.1.1, 0.2, ...) when top-level heading is not h1
+  article.querySelectorAll('span.header-section-number').forEach(function(s) {
+    s.innerText = s.innerText.replace(/^(0[.])+/, '');
   });
 
   // build TOC
@@ -280,12 +283,6 @@
           };
         });
         if (!fuse) {
-          // if Fuse has not been loaded, load the latest version from CDN
-          if (!window.Fuse) {
-            var script = d.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js';
-            d.head.appendChild(script);
-          }
           var request = new XMLHttpRequest();
           request.responseType = 'json';
           request.addEventListener('load', function(e) {
@@ -305,7 +302,18 @@
             });
           }, false);
           request.open('GET', '/index.json');
-          request.send(null);
+          // if Fuse has not been loaded, load the latest version from CDN
+          if (!window.Fuse) {
+            var script = d.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js';
+            // fetch the search index after Fuse is ready
+            script.onload = function(e) {
+              request.send(null);
+            };
+            d.head.appendChild(script);
+          } else {
+            request.send(null);
+          }
         }
       }
       s.style.display = 'block';

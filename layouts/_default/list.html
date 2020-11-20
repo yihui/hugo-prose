@@ -36,7 +36,7 @@
 
 {{ $pages := .Pages }}
 {{ if .IsHome }}
-{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages "Section" "!=" "") "Date" "desc") }}
+{{ $pages = first (default 6 .Site.Params.homePosts) (sort (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) "Date" "desc") }}
 {{ else }}
 {{ $pages = (.Paginate $pages).Pages }}
 {{ end }}
