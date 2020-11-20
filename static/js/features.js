@@ -1,15 +1,14 @@
 (function(d) {
   // implement some features for articles: sidenotes, number_sections, toc
 
-  var config = [], toc_title = 'Contents', isArray = function(x) {
-    return x instanceof Array;
+  var config = [], toc_title = 'Contents', makeArray = function(x) {
+    return x instanceof Array ? x : (x === null ? [] : [x]);
   };
   if (d.currentScript) {
     config = d.currentScript.dataset['pageFeatures'];
     config = config ? JSON.parse(config) : [];
-    var c1 = config[0], c2 = config[1];  // local to override global config
-    if (!isArray(c1)) c1 = [];
-    if (!isArray(c2)) c2 = [];
+    // local c1 to override global config c2
+    var c1 = makeArray(config[0]), c2 = makeArray(config[1]);
     if (c1.length > 0) c2.forEach(function(x) {
       x1 = x.replace(/^[+-]/, '');
       var found = false;
