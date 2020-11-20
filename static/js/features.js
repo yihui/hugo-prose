@@ -135,6 +135,10 @@
     h.insertBefore(d.createTextNode(number_section(t1 - 1)), h.firstChild);
     t0 = t1;
   });
+  // avoid Pandoc's numbering from 0 (e.g., 0.1, 0.1.1, 0.2, ...) when top-level heading is not h1
+  article.querySelectorAll('span.header-section-number').forEach(function(s) {
+    s.innerText = s.innerText.replace(/^(0[.])+/, '');
+  });
 
   // build TOC
   var toc = article.querySelector('#TOC');
