@@ -15,8 +15,20 @@ source: "https://en.wikipedia.org/wiki/Beatrix_Potter#Scientific_illustrations_a
 Beatrix Potter's parents did not discourage higher education. As was common in the Victorian era, women of her class were privately educated and rarely went to university.
 
 ::: {.embed-right}
-![mycology illustration](featured.jpg){width="250"}
+![mycology illustration](featured.jpg)
 :::
+
+<div class="embed-right">
+
+![mycology illustration](featured.jpg)
+
+</div>
+
+<div class="embed-right">
+
+{{< figure src="featured.jpg" alt="mushrooms" caption="Illustration by Beatrix Potter" >}}
+
+</div>
 
 Beatrix Potter was interested in every branch of natural science save astronomy. Botany was a passion for most Victorians and nature study was a popular enthusiasm. Potter was eclectic in her tastes: collecting fossils, studying archaeological artefacts from London excavations, and interested in entomology. In all these areas, she drew and painted her specimens with increasing skill. By the 1890s, her scientific interests centred on mycology. First drawn to fungi because of their colours and evanescence in nature and her delight in painting them, her interest deepened after meeting Charles McIntosh, a revered naturalist and amateur mycologist, during a summer holiday in Dunkeld in Perthshire in 1892. He helped improve the accuracy of her illustrations, taught her taxonomy, and supplied her with live specimens to paint during the winter. Curious as to how fungi reproduced, Potter began microscopic drawings of fungus spores (the agarics) and in 1895 developed a theory of their germination. Through the connections of her uncle Sir Henry Enfield Roscoe, a chemist and vice-chancellor of the University of London, she consulted with botanists at Kew Gardens, convincing George Massee of her ability to germinate spores and her theory of hybridisation.[30] She did not believe in the theory of symbiosis proposed by Simon Schwendener, the German mycologist, as previously thought; instead, she proposed a more independent process of reproduction.
 

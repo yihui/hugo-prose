@@ -9,7 +9,7 @@ menu:
 
 <div class="quote-right">
 
-> Until we have begun to go without them, we fail to realize how unnecessary many things are. We've been using them not because we needed them but because we had them.
+> “There is something delicious about writing the first words of a story. You never quite know where they'll take you.” 
 
 </div>
 

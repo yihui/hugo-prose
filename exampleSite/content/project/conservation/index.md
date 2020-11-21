@@ -2,8 +2,6 @@
 title: Conservation
 author: Beatrix Potter
 date: '2017-06-14'
-categories:
-  - conservationist
 tags:
   - bunnies
 slug: land

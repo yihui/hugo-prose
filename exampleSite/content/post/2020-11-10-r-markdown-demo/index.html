@@ -6,6 +6,8 @@ slug: r-markdown-demo
 features: [+sticky_menu]
 toc-title: Outline
 bibliography: packages.bib
+categories:
+  - R
 ---
 
 <script src="{{< relref "post/2020-11-10-r-markdown-demo/index.html" >}}index_files/header-attrs/header-attrs.js"></script>
@@ -218,14 +220,14 @@ This is a **sidenote** on the right.
 <div id="citations" class="section level3">
 <h3>Citations</h3>
 <p>Use <code>bibliography</code> or <code>references</code> in YAML to include the bibliography database,
-and use <code>@</code> to cite items, e.g., <code>@R-base</code> generates <span class="citation"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2020</a>)</span>.</p>
+and use <code>@</code> to cite items, e.g., <code>@R-base</code> generates <span class="citation"><a href="#ref-R-base" role="doc-biblioref">R Core Team</a> (<a href="#ref-R-base" role="doc-biblioref">2019</a>)</span>.</p>
 <pre class="r"><code>knitr::write_bib(&#39;base&#39;, &#39;packages.bib&#39;)</code></pre>
 <p>As you can see above, we generated a <code>.bib</code> database with <code>knitr::write_bib()</code>.</p>
 <p>Citation entries are displayed in the right margin by default like footnotes. To
 disable this behavior, set <code>features: [-sidenotes]</code> in YAML.</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-R-base" class="csl-entry">
-R Core Team. 2020. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+R Core Team. 2019. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 </div>
 </div>

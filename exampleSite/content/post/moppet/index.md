@@ -17,7 +17,9 @@ This is the Mouse peeping out behind the cupboard, and making fun of Miss
 Moppet. He is not afraid of a kitten.
 
 
-
+::: {.embed-right}
+![moppet illustration](featured.jpg)
+:::
 
 
 This is Miss Moppet jumping just too late; she misses the Mouse and hits
