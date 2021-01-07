@@ -1,5 +1,5 @@
 local({
-  if (!file.exists('config.yaml')) setwd('exampleSite/')
+  if (dir.exists('exampleSite')) setwd('exampleSite/')
   for (f in c('~/.Rprofile', '.Rprofile')) {
     if (file.exists(f)) sys.source(f, environment())
   }
