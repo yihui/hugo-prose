@@ -1,0 +1,35 @@
+- id: readMore
+  translation: "Read More"
+
+- id: reUse
+  translation: "Reuse"
+
+- id: citation
+  translation: "Citation"
+
+- id: citationText
+  translation: "For attribution, please cite this work as"
+
+- id: comments
+  translation: "Comments"
+
+- id: authorsBio
+  translation: "Author's bio"
+
+- id: suggestChanges
+  translation: "Suggest changes"
+
+- id: suggestChangesText1
+  translation: "If you find any mistakes (including typos) or want to suggest changes, please feel free to "
+
+- id: suggestChangesText2
+  translation: "edit the source file of this page on Github and create a pull request."
+
+- id: nextPost
+  translation: "Next post (older)"
+
+- id: previousPost
+  translation: "Previous post (newer)"
+
+- id: notFound404
+  translation: "404 NOT FOUND"

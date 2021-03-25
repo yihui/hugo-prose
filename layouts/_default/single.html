@@ -31,9 +31,9 @@
 
 {{ if .Section }}
 <nav class="post-nav">
-  <span class="nav-next">{{ with .PrevInSection }}&larr; <a href="{{ .RelPermalink }}" title="Next post (older)">{{ .Title }}</a>{{ end }}</span>
+  <span class="nav-next">{{ with .PrevInSection }}&larr; <a href="{{ .RelPermalink }}" title={{ i18n "nextPost" }}>{{ .Title }}</a>{{ end }}</span>
   &hercon;
-  <span class="nav-prev">{{ with .NextInSection }}<a href="{{ .RelPermalink }}" title="Previous post (newer)">{{ .Title }}</a> &rarr;{{ end }}</span>
+  <span class="nav-prev">{{ with .NextInSection }}<a href="{{ .RelPermalink }}" title={{ i18n "previousPost" }}>{{ .Title }}</a> &rarr;{{ end }}</span>
 </nav>
 {{ end }}
 
