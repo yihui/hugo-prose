@@ -2,7 +2,7 @@
 {{ if $.Site.Data.authors }}
 {{ if .Params.author }}
 <div>
-  <div class="side side-left"><h3>Author's bio</h3></div>
+  <div class="side side-left"><h3>{{ i18n "authorsBio" }}</h3></div>
   <div>{{ partial "bio.html" . }}</div>
 </div>
 {{ end }}
@@ -17,7 +17,7 @@
 
 {{ with (default .Params.license .Site.Params.license ) }}
 <div>
-  <div class="side side-left"><h3>Reuse</h3></div>
+  <div class="side side-left"><h3>{{ i18n "reUse" }}</h3></div>
   {{ . | markdownify }}
 </div>
 {{ end }}
@@ -26,8 +26,8 @@
 
 {{ if .Params.author }}
 <div>
-  <div class="side side-left"><h3>Citation</h3></div>
-  <p>For attribution, please cite this work as</p>
+  <div class="side side-left"><h3>{{ i18n "citation" }}</h3></div>
+  <p>{{ i18n "citationText" }}</p>
   <pre><code class="no-highlight">{{ with .Params.author }}{{ if (reflect.IsSlice .) }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}{{ end }} ({{ (or .Date now).Format "2006" }}). {{ .Title }}. {{ .Site.Title }}. {{ .Permalink}}</code></pre>
   <p>BibTeX citation</p>
   <pre><code class="no-highlight">@misc{

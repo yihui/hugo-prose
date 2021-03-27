@@ -1,6 +1,6 @@
 {{ if (and .File .Site.Params.editLink) }}
 <div>
-  <div class="side side-left"><h3>Suggest changes</h3></div>
+  <div class="side side-left"><h3>{{ i18n "suggestChanges" }}</h3></div>
   {{ $filePath := .File.Path }}
   {{ $RmdFile := (print .File.Dir .File.BaseFileName ".Rmd") }}
   {{ if (fileExists (print "content/" $RmdFile)) }}
@@ -11,8 +11,6 @@
       {{ $filePath = $RmdFile }}
     {{ end }}
   {{ end }}
-  If you find any mistakes (including typos) or want to suggest changes,
-  please feel free to <a href="{{ .Site.Params.editLink }}{{ $filePath }}" id="edit-link">edit
-  the source file of this page</a> on Github and create a pull request.
+  {{ i18n "suggestChangesText1" }}<a href="{{ .Site.Params.editLink }}{{ $filePath }}" id="edit-link">{{ i18n "suggestChangesText2" }}</a>
 </div>
 {{ end }}

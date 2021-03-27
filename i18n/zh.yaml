@@ -1,0 +1,36 @@
+- id: readMore
+  translation: "阅读全文"
+
+- id: reUse
+  translation: "重复使用"
+
+- id: citation
+  translation: "引用本文"
+
+- id: citationText
+  translation: "如果您使用了本文的内容，请按照以下方式引用："
+
+- id: comments
+  translation: "欢迎留言"
+
+- id: authorsBio
+  translation: "作者简介"
+
+- id: suggestChanges
+  translation: "欢迎修订" 
+  
+- id: suggestChangesText1
+  translation: "如果您发现本文里含有任何错误（包括错别字和标点符号），欢迎"
+
+- id: suggestChangesText2
+  translation: "在本站的 GitHub 项目里提交修订意见。"
+
+- id: nextPost
+  translation: "下一篇 (旧)"
+
+- id: previousPost
+  translation: "上一篇 (新)"
+  
+- id: notFound404
+  translation: "页面没找到（错误代码 404）"
+  
