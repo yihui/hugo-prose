@@ -1,0 +1,20 @@
+.article-list:hover{
+    transform: translateY(5px);
+    transform: translateX(5px);
+    opacity: 90%;
+    box-shadow: 0 0 8px #9A9A9A;
+}
+
+.menu { background: #284241; }
+
+.menu a, .pagination a, .article-meta a {
+    color: white;
+}
+
+body{
+    background: #E8F1F1;
+}
+
+.container{
+    background: #E8F1F1;
+}
