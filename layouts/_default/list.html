@@ -49,6 +49,8 @@
     <td>
     {{ with .Params.categories }}
     {{ range first 1 . }}
+    <div class="postCardContainer">
+    <div class = "postCardFront">
     <div class="categories">
       <a href="{{ relURL (print "/categories/" . "/" | urlize) }}">{{ . }}</a>
     </div>
@@ -59,7 +61,13 @@
       {{ if .Date }}<span>{{ .Date.Format "2006-01-02" }}</span>{{ end }}
       {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
     </div>
+
+      <div class="postShort" style="width:100%">
+        <p> Aeroplane, generosity, sneak. Boat, nervous, find.</p>
+       <div> 
+      </div>     
     <div class="summary">
+      <div class="summaryText">
       {{ $summary := .Description }}
       {{ if $summary }}
       {{ $summary = (markdownify $summary) }}
@@ -67,8 +75,11 @@
       {{ $summary = ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summaryLength) (default " &hellip;" .Site.Params.textTruncated ) | replaceRE "&amp;" "&") }}
       {{ end }}
       {{ $summary | replaceRE "^([A-Za-z])" "&$1 opf;" | replaceRE "^(&[A-Za-z]) (opf;)" "$1$2" | safeHTML }}
-      <a href="{{ .RelPermalink }}" class="more" title={{ i18n "readMore" }}>{{ i18n "readMore" }} &rarr;</a>
     </div>
+      <a href="{{ .RelPermalink }}" class="more" title={{ i18n "readMore" }}>{{ i18n "readMore" }} </a>
+    </div>
+    </div>
+
     </td>
     {{ if $.IsHome }}
     <td class="spacer spacer-right"></td>

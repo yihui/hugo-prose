@@ -18,3 +18,52 @@ body{
 .container{
     background: #E8F1F1;
 }
+
+
+
+.postCardFront{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.summary {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background-color: #284241;
+    color: white;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+  
+  .postShort:hover .summary {
+    height: 100%;
+  }
+
+  .summaryText{
+    padding-left: 10px;
+    padding-right:60px;
+    padding-top:20px
+  }
+
+  .more{
+    padding: 0.25rem;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin-left: 10px;
+  }
+
+  .more:hover{
+     background: dodgerblue;
+	 color: white
+  }
