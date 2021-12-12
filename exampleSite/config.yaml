@@ -45,15 +45,15 @@ menu:
 
 params:
   homePosts: 6
-  mainSections: ["post", "work"]
+  mainSections: ["post", "project"]
   editLink: "https://github.com/yihui/hugo-prose/edit/master/exampleSite/content/"
   authorDelimiter: " / "
   pageFeatures: [+sidenotes]
   description: >
     A website built through Hugo and blogdown with the hugo-prose theme.
   footer: >
-    &copy; [Lucius Annaeus Seneca](https://en.wikipedia.org/wiki/Seneca_the_Younger)
-    4 BC -- AD 65
+    &copy; [Beatrix Potter](https://en.wikipedia.org/wiki/Beatrix_Potter)
+    28 July 1866 – 22 December 1943
   license: >
     Text and figures are licensed under [Creative Commons Attribution CC BY
     4.0](https://creativecommons.org/licenses/by/4.0/). The source code is

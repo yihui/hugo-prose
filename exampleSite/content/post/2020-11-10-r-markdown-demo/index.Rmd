@@ -6,6 +6,8 @@ slug: r-markdown-demo
 features: [+sticky_menu]
 toc-title: Outline
 bibliography: packages.bib
+categories:
+  - R
 ---
 
 ```{r, setup, include=FALSE}
