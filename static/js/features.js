@@ -23,22 +23,6 @@
     config = c1;
   }
 
-  var removeEl = function(el) {
-    if (!el) return;
-    el.remove ? el.remove() : el.parentNode.removeChild(el);
-  };
-
-  var insertAfter = function(target, sib) {
-    target.after ? target.after(sib) : (
-      target.parentNode.insertBefore(sib, target.nextSibling)
-    );
-  };
-  var insertBefore = function(target, sib) {
-    target.before ? target.before(sib) : (
-      target.parentNode.insertBefore(sib, target)
-    );
-  };
-
   var i, a, s;
 
   // process single articles
@@ -46,8 +30,8 @@
   if (!article) article = d.createElement('div');
 
   // move <figcaption> out of <figure> (and p.caption out of div.figure) so that <figure> can scroll
-  d.querySelectorAll('.fullscroll figure > figcaption, .fullscroll .figure > .caption').forEach(function(el) {
-    insertAfter(el.parentNode, el);
+  d.querySelectorAll('.fullscroll figure > figcaption, .fullscroll .figure > .caption').forEach(el => {
+    el.parentNode.after(el);
   });
 
   // move footnotes (ids start with fn) and citations (ids start with ref-) to sidenotes
@@ -124,7 +108,7 @@
 
   // build TOC
   var toc = article.querySelector('#TOC');
-  removeEl(toc);  // delete and rebuild TOC if it has been generated (by Pandoc)
+  toc?.remove();  // delete and rebuild TOC if it has been generated (by Pandoc)
   var build_toc = config.indexOf('+toc') >= 0 || config.indexOf('-toc') === -1;
   toc = d.createElement('div');
   if (build_toc) {
@@ -192,7 +176,7 @@
       s = s.querySelector('a[href="#"]');
       if (s) s.href = a.href;
     } else {
-      removeEl(s);  // no edit link available; delete the menu item
+      s.remove();  // no edit link available; delete the menu item
     }
   }
 
@@ -213,12 +197,12 @@
         s = document.createElement('div');
         s.innerHTML = '<input type="search" class="search-input" disabled placeholder="Loading search index...">';
         var input = s.firstElementChild;
-        insertBefore(a, s);
+        a.before(s);
         var c = d.createElement('div');  // container for search results
         c.className = 'container list search-results';
         var m = d.createElement('main');
         c.appendChild(m);
-        insertBefore(d.querySelector('.container'), c);
+        d.querySelector('.container').before(c);
         // Esc to close search box when it's empty
         input.addEventListener('keydown', function(e) {
           if (this.value === '' && e.key === 'Escape') a.click();
