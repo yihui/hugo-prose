@@ -25,7 +25,6 @@ appendix:
     CSS style for draft posts was borrowed from Fabian Tamp's
     [paperesque](https://github.com/capnfabs/paperesque/) theme. [Wladimir Palant's tutorial](https://palant.info/2020/06/04/the-easier-way-to-use-lunr-search-with-hugo/)
     helped a lot with our implementation of the client-side search.
-features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
 **Hugo Prose** is a minimalist theme derived from the [**XMin**
@@ -392,7 +391,7 @@ as:
 ### Screen size
 
 |                   | Attribute \\ width | 650 - 800px | 800 - 1280px  | \> 1280px                  |
-|-------------------|--------------------|-------------|---------------|----------------------------|
+|----------------|----------------|----------------|----------------|----------------|
 | Menu              | optional items     | hidden      | shown         | \<=                        |
 | Table of contents | position           | =\>         | body / static | left margin / sticky       |
 | Floats            | position           | =\>         | body / static | beside or overlapping body |
