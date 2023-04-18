@@ -92,20 +92,12 @@ a `pre` value, it will be used as the class of the menu item. The special value
     `<li class="optional">`. It may be an unimportant item that you do not mind
     hiding on smaller screens.
 
-The header menu can be made sticky via the parameter `pageFeatures` in
+The header menu can be made sticky via the parameter `stickyMenu` in
 `config.yaml`:
 
 ``` yaml
 params:
-  pageFeatuers: [+sticky_menu]
-```
-
-This feature can be disabled per-page if enabled globally in
-`config.yaml`----add `-sticky_menu` to the `features` YAML field in the single
-page, e.g.,
-
-``` yaml
-features: [-sticky_menu]
+  stickyMenu: true
 ```
 
 ### Home page
