@@ -28,9 +28,9 @@
 <div>
   <div class="side side-left"><h3>{{ i18n "citation" }}</h3></div>
   <p>{{ i18n "citationText" }}</p>
-  <pre><code class="no-highlight">{{ with .Params.author }}{{ if (reflect.IsSlice .) }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}{{ end }} ({{ (or .Date now).Format "2006" }}). {{ .Title }}. {{ .Site.Title }}. {{ .Permalink}}</code></pre>
+  <pre><code>{{ with .Params.author }}{{ if (reflect.IsSlice .) }}{{ delimit . ", " }}{{ else }}{{ . }}{{ end }}{{ end }} ({{ (or .Date now).Format "2006" }}). {{ .Title }}. {{ .Site.Title }}. {{ .Permalink}}</code></pre>
   <p>BibTeX citation</p>
-  <pre><code class="no-highlight">@misc{
+  <pre><code>@misc{
   title = "{{ .Title }}",
   author = "{{ with .Params.author }}{{ if (reflect.IsSlice .) }}{{ delimit . " and " }}{{ else }}{{ . }}{{ end }}{{ end }}",
   year = "{{ (or .Date now).Format "2006" }}",
