@@ -26,14 +26,14 @@ menu:
       url: "index.xml"
   footer:
     - name: Contact
-      url: "/404.html"
+      url: "404.html"
       weight: 1
     - name: Categories
-      url: "/categories/"
+      url: "categories/"
       weight: 2
       pre: "optional"
     - name: Tags
-      url: "/tags/"
+      url: "tags/"
       weight: 3
       pre: "optional"
     - name: Suggest an edit
