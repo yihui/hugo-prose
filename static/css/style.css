@@ -98,7 +98,6 @@ pre code {
 .appendix pre code { white-space: pre-wrap; }
 
 h3.side-left { text-align: right; }
-.embed-left, #TOC { position: sticky; }
 
 .spacer { width: 1em; }
 .spacer-left { border-left: 1px dashed; }
