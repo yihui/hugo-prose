@@ -1,7 +1,7 @@
 {{ if (and .File .Site.Params.editLink) }}
 <div>
   <div class="side side-left"><h3>{{ i18n "suggestChanges" }}</h3></div>
-  {{ $filePath := .File.Path }}
+  {{ $filePath := path.Clean .File.Path }}
   {{ $RmdFile := (print .File.Dir .File.BaseFileName ".Rmd") }}
   {{ if (fileExists (print "content/" $RmdFile)) }}
     {{ $filePath = $RmdFile }}
