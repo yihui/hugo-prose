@@ -66,17 +66,17 @@ footer menu is defined in the `footer` option, e.g.,
 menu:
   header:
     - name: Home
-      url: "/"
+      url: ""
       weight: 1
     - name: About
-      url: "/about/"
+      url: "about/"
       weight: 2
   footer:
     - name: Contact
-      url: "/404.html"
+      url: "404.html"
       weight: 1
     - name: Categories
-      url: "/categories/"
+      url: "categories/"
       weight: 2
       pre: "optional"
 ```
