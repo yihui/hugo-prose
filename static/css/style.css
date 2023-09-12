@@ -168,6 +168,7 @@ blockquote {
 #TOC .numbered li { list-style: none; }
 #TOC .numbered { padding-left: 0; }
 #TOC .numbered ul { padding-left: 1em; }
+#TOC .active { font-weight: bold; }
 .side-title { width: 3em; }
 .side-title h1 { border: none; }
 .post-card .side-title h1 a, .post-card .spacer-right, .appendix h3 { color: lightslategray; }
