@@ -25,7 +25,6 @@ appendix:
     CSS style for draft posts was borrowed from Fabian Tamp's
     [paperesque](https://github.com/capnfabs/paperesque/) theme. [Wladimir Palant's tutorial](https://palant.info/2020/06/04/the-easier-way-to-use-lunr-search-with-hugo/)
     helped a lot with our implementation of the client-side search.
-features: [+toc, +number_sections, +sidenotes, -citation]
 ---
 
 **Hugo Prose** is a minimalist theme derived from the [**XMin**
@@ -67,17 +66,17 @@ footer menu is defined in the `footer` option, e.g.,
 menu:
   header:
     - name: Home
-      url: "/"
+      url: ""
       weight: 1
     - name: About
-      url: "/about/"
+      url: "about/"
       weight: 2
   footer:
     - name: Contact
-      url: "/404.html"
+      url: "404.html"
       weight: 1
     - name: Categories
-      url: "/categories/"
+      url: "categories/"
       weight: 2
       pre: "optional"
 ```
@@ -92,20 +91,12 @@ a `pre` value, it will be used as the class of the menu item. The special value
     `<li class="optional">`. It may be an unimportant item that you do not mind
     hiding on smaller screens.
 
-The header menu can be made sticky via the parameter `pageFeatures` in
+The header menu can be made sticky via the parameter `stickyMenu` in
 `config.yaml`:
 
 ``` yaml
 params:
-  pageFeatuers: [+sticky_menu]
-```
-
-This feature can be disabled per-page if enabled globally in
-`config.yaml`----add `-sticky_menu` to the `features` YAML field in the single
-page, e.g.,
-
-``` yaml
-features: [-sticky_menu]
+  stickyMenu: true
 ```
 
 ### Home page
@@ -400,7 +391,7 @@ as:
 ### Screen size
 
 |                   | Attribute \\ width | 650 - 800px | 800 - 1280px  | \> 1280px                  |
-|-------------------|--------------------|-------------|---------------|----------------------------|
+|----------------|----------------|----------------|----------------|----------------|
 | Menu              | optional items     | hidden      | shown         | \<=                        |
 | Table of contents | position           | =\>         | body / static | left margin / sticky       |
 | Floats            | position           | =\>         | body / static | beside or overlapping body |
