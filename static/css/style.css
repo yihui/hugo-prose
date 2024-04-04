@@ -143,7 +143,7 @@ blockquote {
   font-size: .8em;
 }
 .article-list a, .footer a {
-  text-decoration: none;
+  text-decoration: underline;
   color: #000;
 }
 .article-list h1 a {
