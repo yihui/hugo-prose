@@ -55,6 +55,12 @@
  
  }
 
+ .wrapper {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 
  .article-list, .body, .body~.appendix, .embed-left, .embed-right, .frontmatter, .fullwidth, .single .appendix, .single main {
   margin-top: 2em;
