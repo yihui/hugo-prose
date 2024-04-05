@@ -93,11 +93,11 @@
  
  }
  
- .list main > .post-card {
- flex: 0 0 calc(50% - .5em);
- 
- }
- 
+.list main > .post-card {
+  flex: 0 0 calc(50% - .5em);
+
+}
+
  .menu, .container { 
   padding: 0 1em; 
 }

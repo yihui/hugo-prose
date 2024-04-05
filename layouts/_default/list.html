@@ -99,8 +99,8 @@
     {{ if $currentYear }}{{/* Close previous year section tags if open. */}}</div>{{ end }}
     {{/* Update the currentYear variable and open a new year section. */}}
     {{ $currentYear = $year }}
-    <h2>{{ $year }}</h2>
-    <div class="year-section">
+    <h2 style="margin-block: 0px;">{{ $year }}</h2>
+    <!-- <div class="year-section"> -->
   {{ end }}
 
   {{/* If it's a new month within the same year, close the previous month's section if necessary and start a new month section. */}}
@@ -108,8 +108,10 @@
     {{ if $currentMonth }}{{/* Close previous month section tags if open. */}}</div>{{ end }}
     {{/* Update the currentMonth variable and open a new month section. */}}
     {{ $currentMonth = $month }}
-    <h3>{{ $month }}</h3>
-    <div class="month-section">
+    <h3 style="margin-block: 0px; margin-top: 0.5em;">
+      <span style="margin-right: 10px; color: #ccc;">|</span>{{ $month }}
+    </h3>
+    <!-- <div class="month-section"> -->
   {{ end }}
   <section class="article-list post-card{{ if .Draft }} draft{{ end }} {{ if eq .Type "notes" }}note{{ else }}post{{ end }}">
     <table>
@@ -147,8 +149,8 @@
 {{ end }}
 
 {{/* Close the last year's and month's sections. */}}
-{{ if $currentMonth }}</div>{{ end }}
-{{ if $currentYear }}</div>{{ end }}
+<!-- {{ if $currentMonth }}</div>{{ end }}
+{{ if $currentYear }}</div>{{ end }} -->
 
 
 {{ if not .IsHome }}
