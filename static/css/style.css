@@ -402,25 +402,36 @@
  table thead th { border-bottom: 1px solid var(--table-header-border-color); }
  
  th, td { padding: 5px; }
- 
- /* responsive */
- 
- @media (width <= 1280px) {
- 
- .appendix h3 { text-align: initial; }
- 
+
+ .home-icon {
+  display: none;
  }
  
+ /* responsive */
+  
  @media (width <= 800px) {
  
- li.optional { display: none; }
- 
- .article-list { margin-top: 1.5em; background: var(--cards-background-color);}
- 
- .list main .post-card { flex: inherit; }
- 
- .menu ul, .footer { flex-wrap: wrap; }
- 
- .search input, .search #menu-search a { font-size: 1em; }
+  li.optional { display: none; }
+  
+  .article-list { margin-top: 1.5em; background: var(--cards-background-color);}
+  
+  .list main .post-card { flex: inherit; }
+  
+  .menu ul, .footer { flex-wrap: wrap; }
+  
+  .search input, .search #menu-search a { font-size: 1em; }
+
+ }
+
+ @media (width <= 600px) {
+  .home-icon {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .site-title {
+    display: none;
+  }
  
  }
