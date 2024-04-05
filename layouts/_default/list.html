@@ -42,6 +42,7 @@
 {{ $pages = (.Paginate $pages).Pages }}
 {{ end }}
 
+{{ if .IsHome }}
 {{ range $pages }}
   <section class="article-list post-card{{ if .Draft }} draft{{ end }} {{ if eq .Type "notes" }}note{{ else }}post{{ end }}">
     <table>
@@ -80,6 +81,79 @@
     </table>
   </section>
 {{ end }}
+{{ end }}
+
+{{/* Initialize a variable to keep track of the current year and month. */}}
+{{ $currentYear := "" }}
+{{ $currentMonth := "" }}
+
+{{ if not .IsHome }}
+  {{ range $pages }}
+  {{/* Capture the year and month of the current page. */}}
+  {{ $year := .Date.Format "2006" }}
+  {{ $month := .Date.Format "January" }}
+
+  {{/* If it's a new year, close the previous year's and month's sections if necessary and start a new year section. */}}
+  {{ if not (eq $year $currentYear) }}
+    {{ if $currentMonth }}{{/* Close previous month section tags if open. */}}</div>{{ end }}
+    {{ if $currentYear }}{{/* Close previous year section tags if open. */}}</div>{{ end }}
+    {{/* Update the currentYear variable and open a new year section. */}}
+    {{ $currentYear = $year }}
+    <h2>{{ $year }}</h2>
+    <div class="year-section">
+  {{ end }}
+
+  {{/* If it's a new month within the same year, close the previous month's section if necessary and start a new month section. */}}
+  {{ if and (eq $year $currentYear) (not (eq $month $currentMonth)) }}
+    {{ if $currentMonth }}{{/* Close previous month section tags if open. */}}</div>{{ end }}
+    {{/* Update the currentMonth variable and open a new month section. */}}
+    {{ $currentMonth = $month }}
+    <h3>{{ $month }}</h3>
+    <div class="month-section">
+  {{ end }}
+  <section class="article-list post-card{{ if .Draft }} draft{{ end }} {{ if eq .Type "notes" }}note{{ else }}post{{ end }}">
+    <table>
+    <tbody>
+    <tr>
+    <td>
+    {{ with .Params.categories }}
+    {{ range first 1 . }}
+    <div class="categories">
+      <a href="{{ relURL (print "/categories/" . "/" | urlize) }}">{{ . }}</a>
+    </div>
+    {{ end }}
+    {{ end }}
+    <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+    <div>
+      {{ if .Date }}<span>{{ .Date.Format "2 January 2006" }}</span>{{ end }}
+      {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
+    </div>
+    <div class="summary">
+      {{ $summary := .Description }}
+      {{ if $summary }}
+      {{ $summary = (markdownify $summary) }}
+      {{ else }}
+      {{ $summary = ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summaryLength) (default " &hellip;" .Site.Params.textTruncated ) | replaceRE "&amp;" "&") }}
+      {{ end }}
+      {{ $summary | replaceRE "^([A-Za-z])" "&$1 opf;" | replaceRE "^(&[A-Za-z]) (opf;)" "$1$2" | safeHTML }}
+      <a href="{{ .RelPermalink }}" class="more" title={{ i18n "readMore" }}>{{ i18n "readMore" }} &rarr;</a>
+    </div>
+    </td>
+    {{ if $.IsHome }}
+    <td class="spacer spacer-right"></td>
+    <td class="side-title">{{ with .Section }}<h1><a href="{{ print "/" . "/" | relURL }}">{{ . }}</a></h1>{{ end }}</td>
+    {{ end }}
+    </tr>
+    </tbody>
+    </table>
+  </section>
+{{ end }}
+{{ end }}
+
+{{/* Close the last year's and month's sections. */}}
+{{ if $currentMonth }}</div>{{ end }}
+{{ if $currentYear }}</div>{{ end }}
+
 
 {{ if not .IsHome }}
 {{ template "_internal/pagination.html" . }}
