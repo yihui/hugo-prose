@@ -12,7 +12,7 @@
 {{ if reflect.IsSlice . }}{{ delimit . (default " / " $.Site.Params.authorDelimiter) }}{{ else }}{{ . }}{{ end }}
 </h3>
 {{ end }}
-{{ if .Params.date }}<h3 class="date">{{ .Date.Format "2006-01-02" }}</h3>{{ end }}
+{{ if .Params.date }}<h3 class="date">{{ .Date.Format "2 January 2006" }}</h3>{{ end }}
 <p class="terms">
   {{ range $i := (slice "categories" "tags") }}
   {{ with ($.Param $i) }}

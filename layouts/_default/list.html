@@ -42,7 +42,7 @@
 {{ end }}
 
 {{ range $pages }}
-  <section class="article-list post-card{{ if .Draft }} draft{{ end }}">
+  <section class="article-list post-card{{ if .Draft }} draft{{ end }} {{ if eq .Type "notes" }}note{{ else }}post{{ end }}">
     <table>
     <tbody>
     <tr>
@@ -56,7 +56,7 @@
     {{ end }}
     <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
     <div>
-      {{ if .Date }}<span>{{ .Date.Format "2006-01-02" }}</span>{{ end }}
+      {{ if .Date }}<span>{{ .Date.Format "2 January 2006" }}</span>{{ end }}
       {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
     </div>
     <div class="summary">

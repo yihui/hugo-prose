@@ -3,6 +3,8 @@
  --secondary-color: black;
  --header-footer-color: black;
  --cards-background-color: white;
+  --note-bg-color: #f5f5f5;
+  --post-bg-color: #fcfcfc;
  --background-color: #fff;
  --text-color: #000;
  --link-color: #000;
@@ -257,6 +259,14 @@
  .article-list {
   background-color: var(--cards-background-color);
  }
+
+ .article-list.note {
+  background-color: var(--note-bg-color);
+}
+
+.article-list.post {
+  background-color: var(--post-bg-color);
+}
  
  .article-list h1 a {
  width: 100%;
