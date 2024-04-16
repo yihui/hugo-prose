@@ -68,7 +68,7 @@
   box-shadow: 0 0 8px #ccc;
   background: var(--cards-background-color);
 }
- 
+
  main, .menu ul, .footer, .single section, .post-nav {
  max-width: 800px;
  margin: 0 auto;
@@ -149,7 +149,8 @@
  }
  
  .menu, .article-meta, .post-nav {
- text-align: center;
+ text-align: left;
+ padding-left: 5%;
  background: var(--primary-color);
  
  }
@@ -166,7 +167,6 @@
  .title {
  font-size: 1.1em;
  line-height: 1em;
- 
  }
  
  .terms a {
@@ -303,11 +303,11 @@
  
  .article-list td { padding: 0; }
  
- #TOC .numbered li { list-style: none; }
+ #TOC li { list-style: none; }
+
+ #TOC ul { padding-left: 0; }
  
- #TOC .numbered { padding-left: 0; }
- 
- #TOC .numbered ul { padding-left: 1em; }
+ #TOC ul ul { padding-left: 1em; }
  
  #TOC .active {font-weight: bold; }
  
