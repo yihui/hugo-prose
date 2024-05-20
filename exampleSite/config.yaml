@@ -4,8 +4,6 @@ defaultContentLanguage: "en"
 # defaultContentLanguage: "zh"
 title: "Hugo Prose"
 theme: "hugo-prose"
-googleAnalytics: ""
-disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents: "↩"
 paginate: 2
