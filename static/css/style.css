@@ -219,7 +219,7 @@ table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 
 /* responsive */
-@media (max-width: 1240px) {
+@media (max-width: 1264px) {
   .appendix h3 { text-align: initial; }
 }
 @media (max-width: 800px) {
