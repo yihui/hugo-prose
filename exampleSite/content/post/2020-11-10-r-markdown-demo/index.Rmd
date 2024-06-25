@@ -120,7 +120,7 @@ Sidenotes can be generated via a div with classes `side` and `side-left` or
 or Pandoc's fenced `Div`, e.g.,
 
 ::: {.side .side-right}
-This is a **sidenote** on the right side when the window is wider than 1280px.
+This is a **sidenote** on the right side when the window is wider than 1240px.
 :::
 
 ``` {.md}

@@ -390,7 +390,7 @@ as:
 
 ### Screen size
 
-|                   | Attribute \\ width | 650 - 800px | 800 - 1280px  | \> 1280px                  |
+|                   | Attribute \\ width | 650 - 800px | 800 - 1240px  | \> 1240px                  |
 |----------------|----------------|----------------|----------------|----------------|
 | Menu              | optional items     | hidden      | shown         | \<=                        |
 | Table of contents | position           | =\>         | body / static | left margin / sticky       |
