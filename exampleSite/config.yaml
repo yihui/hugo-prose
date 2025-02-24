@@ -6,7 +6,9 @@ title: "Hugo Prose"
 theme: "hugo-prose"
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents: "↩"
-paginate: 2
+
+pagination:
+  pagerSize: 2
 
 permalinks:
   post: "/post/:year/:month/:day/:slug/"
