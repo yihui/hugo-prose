@@ -170,7 +170,7 @@ blockquote {
 }
 .article-list {
   .side-title { writing-mode: vertical-rl; transform: rotate(180deg); }
-  &:nth-child(even):not(.post-card) .side-title { writing-mode: vertical-rl; transform: none; }
+  &:nth-child(even):not(.post-card) .side-title { transform: none; }
   .card-flex {
     display: flex;
     align-items: stretch;
