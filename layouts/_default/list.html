@@ -15,21 +15,17 @@
 {{ if .IsHome }}
 {{ range $i, $p := (where .Site.RegularPages "Section" "card") }}
 <section class="article-list"{{ with .Params.style }}{{ printf " style=%q" . | safeHTMLAttr }}{{ end }}>
-  <table>
-  <tbody>
-  <tr>
+  <div class="card-flex">
   {{if (eq (mod $i 2) 0) }}
-  <td class="side-title"><h1>{{ $p.Title }}</h1></td>
-  <td class="spacer spacer-left"></td>
-  <td>{{ $p.Content }}</td>
+  <div class="side-title"><h1>{{ $p.Title }}</h1></div>
+  <div class="spacer spacer-left"></div>
+  <div class="card-body">{{ $p.Content }}</div>
   {{ else }}
-  <td>{{ $p.Content }}</td>
-  <td class="spacer spacer-right"></td>
-  <td class="side-title"><h1>{{ $p.Title }}</h1></td>
+  <div class="card-body">{{ $p.Content }}</div>
+  <div class="spacer spacer-right"></div>
+  <div class="side-title"><h1>{{ $p.Title }}</h1></div>
   {{ end }}
-  </tr>
-  </tbody>
-  </table>
+  </div>
 </section>
 {{ end }}
 {{ end }}
@@ -43,10 +39,8 @@
 
 {{ range $pages }}
   <section class="article-list post-card{{ if .Draft }} draft{{ end }}">
-    <table>
-    <tbody>
-    <tr>
-    <td>
+    <div class="card-flex">
+    <div class="card-body">
     {{ with .Params.categories }}
     {{ range first 1 . }}
     <div class="categories">
@@ -69,14 +63,12 @@
       {{ $summary | replaceRE "^([A-Za-z])" "&$1 opf;" | replaceRE "^(&[A-Za-z]) (opf;)" "$1$2" | safeHTML }}
       <a href="{{ .RelPermalink }}" class="more" title={{ i18n "readMore" }}>{{ i18n "readMore" }} &rarr;</a>
     </div>
-    </td>
+    </div>
     {{ if $.IsHome }}
-    <td class="spacer spacer-right"></td>
-    <td class="side-title">{{ with .Section }}<h1><a href="{{ print "/" . "/" | relURL }}">{{ . }}</a></h1>{{ end }}</td>
+    <div class="spacer spacer-right"></div>
+    <div class="side-title">{{ with .Section }}<h1><a href="{{ print "/" . "/" | relURL }}">{{ . }}</a></h1>{{ end }}</div>
     {{ end }}
-    </tr>
-    </tbody>
-    </table>
+    </div>
   </section>
 {{ end }}
 

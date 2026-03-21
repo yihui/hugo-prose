@@ -112,7 +112,7 @@ pre code {
 
 h3.side-left { text-align: right; }
 
-.spacer { width: 1em; }
+.spacer { width: 1em; align-self: stretch; }
 .spacer-left { border-left: 1px dashed; }
 .spacer-right { border-right: 1px dashed; }
 
@@ -169,16 +169,17 @@ blockquote {
   margin: 5px 0px 10px;
 }
 .article-list {
-  .side-title { transform: rotate(90deg); }
-  &:nth-child(even):not(.post-card) .side-title { transform: rotate(-90deg); }
-  table {
-    margin: 0;
-    border: none;
-    border-collapse: collapse;
+  .side-title { writing-mode: vertical-rl; transform: rotate(180deg); }
+  &:nth-child(even):not(.post-card) .side-title { transform: none; }
+  .card-flex {
+    display: flex;
+    align-items: stretch;
     width: 100%;
-    table-layout: fixed;
   }
-  td { padding: 0; }
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
 }
 #TOC {
   .numbered {
@@ -188,7 +189,12 @@ blockquote {
   }
   .active { font-weight: bold; }
 }
-.side-title { width: 3em; }
+.side-title {
+  width: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .side-title h1 { border: none; }
 .post-card .side-title h1 a, .post-card .spacer-right, .appendix h3 { color: lightslategray; }
 .appendix h3 { text-align: right; }
