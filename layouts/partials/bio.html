@@ -3,7 +3,7 @@
 {{ if not (reflect.IsSlice $author) }}
 {{ $author = (slice $author) }}
 {{ end }}
-{{ range (where $.Site.Data.authors "name" "in" $author) }}
+{{ range (where hugo.Data.authors "name" "in" $author) }}
 <div>{{ .bio | markdownify }}</div>
 {{ end }}
 {{ end }}
