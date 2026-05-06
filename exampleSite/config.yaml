@@ -1,5 +1,5 @@
 baseurl: "/"
-languageCode: "en-us"
+locale: "en-us"
 defaultContentLanguage: "en"
 # defaultContentLanguage: "zh"
 title: "Hugo Prose"
