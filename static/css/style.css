@@ -47,6 +47,10 @@ main {
   top: 0;
   z-index: 2;
 }
+.side {
+  max-height: 100vh;
+  overflow: auto;
+}
 .menu li, .terms li, .footer li { display: inline-block; }
 footer { background: darkslategray; }
 .menu ul {
